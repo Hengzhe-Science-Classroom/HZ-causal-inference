@@ -1,18 +1,18 @@
 // ============================================================
 //  Ch 18 · Mediation Analysis & Sensitivity
-//  中介分析与敏感性分析
+//  Mediation Analysis & Sensitivity
 // ============================================================
 window.CHAPTERS.push({
     id: 'ch18',
     number: 18,
     title: 'Mediation Analysis & Sensitivity',
-    subtitle: 'Mechanisms and Robustness 中介分析与敏感性分析',
+    subtitle: 'Mechanisms and Robustness',
     sections: [
         // ===== Section 1: Direct & Indirect Effects =====
         {
             id: 'ch18-sec01',
             title: 'Direct & Indirect Effects',
-            content: `<h2>1 Direct & Indirect Effects 直接与间接效应</h2>
+            content: `<h2>1 Direct & Indirect Effects</h2>
 <p>When we find that a treatment \\(X\\) affects an outcome \\(Y\\), a natural follow-up question is <strong>why</strong> and <strong>through what mechanism</strong>. Mediation analysis decomposes the total effect into a <strong>direct effect</strong> (the pathway \\(X \\to Y\\)) and an <strong>indirect effect</strong> (the pathway \\(X \\to M \\to Y\\) through a mediator \\(M\\)).</p>
 
 <div class="env-block definition">
@@ -264,7 +264,7 @@ window.CHAPTERS.push({
         {
             id: 'ch18-sec02',
             title: 'Causal Mediation Analysis',
-            content: `<h2>2 Causal Mediation Analysis 因果中介分析</h2>
+            content: `<h2>2 Causal Mediation Analysis</h2>
 <p>Modern causal mediation analysis, developed by Imai, Keele, and Tingley (2010), provides a rigorous framework for identifying and estimating mediation effects under clearly stated assumptions.</p>
 
 <div class="env-block definition">
@@ -530,7 +530,7 @@ window.CHAPTERS.push({
         {
             id: 'ch18-sec03',
             title: 'Sensitivity Analysis for Unobserved Confounding',
-            content: `<h2>3 Sensitivity Analysis for Unobserved Confounding 未观测混杂的敏感性分析</h2>
+            content: `<h2>3 Sensitivity Analysis for Unobserved Confounding</h2>
 <p>Every observational causal inference rests on the assumption of <strong>no unobserved confounding</strong>. Since this assumption is untestable, we need tools to assess how robust our conclusions are to potential violations. Sensitivity analysis asks: <em>"How strong would unobserved confounding need to be to change our conclusion?"</em></p>
 
 <div class="env-block definition">
@@ -874,7 +874,7 @@ window.CHAPTERS.push({
         {
             id: 'ch18-sec04',
             title: 'Rosenbaum Bounds',
-            content: `<h2>4 Rosenbaum Bounds 罗森鲍姆界</h2>
+            content: `<h2>4 Rosenbaum Bounds</h2>
 <p>Rosenbaum bounds provide a systematic way to assess the sensitivity of matched-pair causal inference to hidden bias. We derive worst-case bounds on the test statistic and treatment effect under increasing levels of unobserved confounding.</p>
 
 <div class="env-block definition">
@@ -1242,7 +1242,7 @@ window.CHAPTERS.push({
         {
             id: 'ch18-sec05',
             title: 'E-values & Modern Sensitivity Tools',
-            content: `<h2>5 E-values & Modern Sensitivity Tools E值与现代敏感性工具</h2>
+            content: `<h2>5 E-values & Modern Sensitivity Tools</h2>
 <p>Recent developments have produced powerful, easy-to-use sensitivity measures that complement the Rosenbaum framework. The <strong>E-value</strong> and the <strong>omitted variable bias (OVB) framework</strong> provide intuitive summaries of robustness.</p>
 
 <div class="env-block definition">

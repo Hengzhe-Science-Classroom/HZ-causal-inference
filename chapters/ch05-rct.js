@@ -3,7 +3,7 @@ window.CHAPTERS.push({
     id: 'ch05',
     number: 5,
     title: 'Randomized Controlled Trials',
-    subtitle: 'The Gold Standard of Causal Inference 随机对照试验',
+    subtitle: 'The Gold Standard of Causal Inference',
     sections: [
         // ── Section 1: Why Randomization Works ──
         {

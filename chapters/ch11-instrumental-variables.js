@@ -1,13 +1,13 @@
 // ============================================================
 // Chapter 11 · Instrumental Variables
-// Exploiting Exogenous Variation 工具变量
+// Exploiting Exogenous Variation
 // ============================================================
 window.CHAPTERS = window.CHAPTERS || [];
 window.CHAPTERS.push({
     id: 'ch11',
     number: 11,
     title: 'Instrumental Variables',
-    subtitle: 'Exploiting Exogenous Variation 工具变量',
+    subtitle: 'Exploiting Exogenous Variation',
     sections: [
         // --------------------------------------------------------
         // Section 1: Endogeneity & the IV Idea

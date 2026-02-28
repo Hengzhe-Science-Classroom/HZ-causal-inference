@@ -4,13 +4,13 @@ window.CHAPTERS.push({
     id: 'ch04',
     number: 4,
     title: 'do-Calculus & Identification',
-    subtitle: 'From Graphs to Causal Effects do-演算与可识别性',
+    subtitle: 'From Graphs to Causal Effects',
     sections: [
         // ── Section 1: The Three Rules of do-Calculus ──
         {
             id: 'ch04-sec01',
             title: 'The Three Rules of do-Calculus',
-            content: `<h2>The Three Rules of do-Calculus do-演算的三条规则</h2>
+            content: `<h2>The Three Rules of do-Calculus</h2>
 
 <p>Pearl's do-calculus provides three inference rules that allow us to manipulate expressions involving the \\(do(\\cdot)\\) operator. Together they form a <em>complete</em> system for identifying causal effects from observational data, given a causal DAG.</p>
 
@@ -306,7 +306,7 @@ window.CHAPTERS.push({
         {
             id: 'ch04-sec02',
             title: 'Identification Strategies',
-            content: `<h2>Identification Strategies 识别策略</h2>
+            content: `<h2>Identification Strategies</h2>
 
 <p>A causal effect \\(P(y \\mid do(x))\\) is <strong>identifiable</strong> if it can be uniquely computed from the observational distribution \\(P(v)\\) and the causal DAG structure (without knowing the functional forms or distributions of unobserved variables).</p>
 
@@ -519,7 +519,7 @@ window.CHAPTERS.push({
         {
             id: 'ch04-sec03',
             title: 'Adjustment Formula & Truncated Factorization',
-            content: `<h2>Adjustment Formula & Truncated Factorization 调整公式与截断分解</h2>
+            content: `<h2>Adjustment Formula & Truncated Factorization</h2>
 
 <p>Two fundamental tools for computing interventional distributions are the <strong>adjustment formula</strong> (also called the backdoor adjustment) and the <strong>truncated factorization</strong>. They provide complementary perspectives on how intervention changes the joint distribution.</p>
 
@@ -800,7 +800,7 @@ window.CHAPTERS.push({
         {
             id: 'ch04-sec04',
             title: 'Instrumental Inequalities',
-            content: `<h2>Instrumental Inequalities 工具变量不等式</h2>
+            content: `<h2>Instrumental Inequalities</h2>
 
 <p>When a causal effect \\(P(y \\mid do(x))\\) is not point-identifiable, we may still be able to derive <strong>bounds</strong> on the effect. Instrumental inequalities provide constraints that the observational distribution must satisfy if a proposed causal model is correct.</p>
 
@@ -1054,7 +1054,7 @@ window.CHAPTERS.push({
         {
             id: 'ch04-sec05',
             title: 'Completeness of do-Calculus',
-            content: `<h2>Completeness of do-Calculus do-演算的完备性</h2>
+            content: `<h2>Completeness of do-Calculus</h2>
 
 <p>A fundamental question in causal inference is: are the three rules of do-calculus <em>sufficient</em> to identify every identifiable causal effect? The answer, proven independently by Huang & Valtorta (2006) and Shpitser & Pearl (2006), is <strong>yes</strong>.</p>
 

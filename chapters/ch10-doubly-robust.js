@@ -3,7 +3,7 @@ window.CHAPTERS.push({
     id: 'ch10',
     number: 10,
     title: 'Doubly Robust Estimation',
-    subtitle: 'Combining Models for Robust Causal Inference 双重稳健估计',
+    subtitle: 'Combining Models for Robust Causal Inference',
     sections: [
         // ============================================================
         // Section 1: Motivation for Double Robustness

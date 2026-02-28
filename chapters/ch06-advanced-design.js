@@ -4,7 +4,7 @@ window.CHAPTERS.push({
     id: 'ch06',
     number: 6,
     title: 'Advanced Experimental Design',
-    subtitle: 'Beyond Simple Randomization 高级实验设计',
+    subtitle: 'Beyond Simple Randomization',
     sections: [
         // ============================================================
         // Section 1: Factorial Designs
@@ -13,7 +13,7 @@ window.CHAPTERS.push({
             id: 'factorial-designs',
             title: 'Factorial Designs',
             content: `
-<h2>Factorial Designs 因子设计</h2>
+<h2>Factorial Designs</h2>
 
 <h3>Why Factorial?</h3>
 <p>In a simple RCT we randomize one treatment factor at a time. But many scientific questions involve
@@ -272,7 +272,7 @@ sacrificing statistical power for any single factor. They are not just efficient
             id: 'crossover-designs',
             title: 'Crossover & Within-Subject Designs',
             content: `
-<h2>Crossover & Within-Subject Designs 交叉设计</h2>
+<h2>Crossover & Within-Subject Designs</h2>
 
 <h3>Motivation</h3>
 <p>In a <strong>between-subjects</strong> design, each unit receives only one treatment. But individual-level
@@ -574,7 +574,7 @@ for conditions that change (e.g., acute illness).
             id: 'adaptive-sequential',
             title: 'Adaptive & Sequential Experiments',
             content: `
-<h2>Adaptive & Sequential Experiments 自适应与序贯实验</h2>
+<h2>Adaptive & Sequential Experiments</h2>
 
 <h3>The Problem with Fixed Designs</h3>
 <p>Classical RCTs fix the sample size, allocation ratio, and decision rules before the trial begins.
@@ -909,7 +909,7 @@ pre-specification to maintain Type I error control.
             id: 'encouragement-designs',
             title: 'Encouragement Designs',
             content: `
-<h2>Encouragement Designs 鼓励设计</h2>
+<h2>Encouragement Designs</h2>
 
 <h3>When Forced Treatment is Unethical</h3>
 <p>Sometimes we cannot ethically or practically <em>force</em> subjects to take a treatment.
@@ -1243,7 +1243,7 @@ encouragement." These are different quantities answering different questions.
             id: 'regression-adjustment',
             title: 'Regression Adjustment in Experiments',
             content: `
-<h2>Regression Adjustment in Experiments 实验中的回归调整</h2>
+<h2>Regression Adjustment in Experiments</h2>
 
 <h3>The Promise of Covariate Adjustment</h3>
 <p>Even in a perfectly randomized experiment, baseline covariates \\(X_i\\) can explain variation

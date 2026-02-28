@@ -1,9 +1,9 @@
-// Chapter 7: Statistical Power & A/B Testing — 统计功效与A/B测试
+// Chapter 7: Statistical Power & A/B Testing
 window.CHAPTERS.push({
     id: 'ch07',
     number: 7,
     title: 'Statistical Power & A/B Testing',
-    subtitle: 'Designing Experiments That Can Detect Effects 统计功效与A/B测试',
+    subtitle: 'Designing Experiments That Can Detect Effects',
     sections: [
         // ── Section 1: Power Analysis Fundamentals ──
         {

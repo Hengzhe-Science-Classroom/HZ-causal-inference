@@ -3,7 +3,7 @@ window.CHAPTERS.push({
     id: 'ch08',
     number: 8,
     title: 'Selection Bias & Confounding',
-    subtitle: 'Understanding and Addressing Systematic Differences 选择偏差与混杂',
+    subtitle: 'Understanding and Addressing Systematic Differences',
     sections: [
         // ================================================================
         // SECTION 1: Sources of Selection Bias

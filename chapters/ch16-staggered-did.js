@@ -1,5 +1,5 @@
 // ============================================================
-// Chapter 16 · 交错DID与事件研究
+// Chapter 16 · Staggered DiD & Event Studies
 // Staggered DiD & Event Studies
 // ============================================================
 window.CHAPTERS = window.CHAPTERS || [];
@@ -7,7 +7,7 @@ window.CHAPTERS.push({
     id: 'ch16',
     number: 16,
     title: 'Staggered DiD & Event Studies',
-    subtitle: 'Modern Methods for Differential Timing 交错DID与事件研究',
+    subtitle: 'Modern Methods for Differential Timing',
     sections: [
         // --------------------------------------------------------
         // Section 1: Problems with TWFE Under Staggered Treatment

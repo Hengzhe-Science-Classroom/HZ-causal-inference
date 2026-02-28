@@ -1,5 +1,5 @@
 // ============================================================
-// Chapter 1 · 潜在结果框架
+// Chapter 1
 // Potential Outcomes Framework — The Rubin Causal Model
 // ============================================================
 window.CHAPTERS = window.CHAPTERS || [];
@@ -7,7 +7,7 @@ window.CHAPTERS.push({
     id: 'ch01',
     number: 1,
     title: 'Potential Outcomes Framework',
-    subtitle: 'The Rubin Causal Model 潜在结果框架',
+    subtitle: 'The Rubin Causal Model',
     sections: [
         // --------------------------------------------------------
         // Section 1: Rubin Causal Model & Notation

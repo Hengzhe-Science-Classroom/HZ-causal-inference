@@ -3,7 +3,7 @@ window.CHAPTERS.push({
     id: 'ch12',
     number: 12,
     title: 'Weak Instruments & Many IVs',
-    subtitle: 'When Standard IV Fails 弱工具变量与多工具变量',
+    subtitle: 'When Standard IV Fails',
     sections: [
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -13,14 +13,14 @@ window.CHAPTERS.push({
         id: 'ch12-sec01',
         title: '1. Weak Instrument Problem',
         content: `
-<h2>Weak Instrument Problem 弱工具变量问题</h2>
+<h2>Weak Instrument Problem</h2>
 
 <p>
 In instrumental variables estimation, the <strong>strength</strong> of the instrument \\(Z\\) is determined by how well it predicts the endogenous regressor \\(X\\) in the first stage.
 When the first-stage relationship is weak, 2SLS suffers from severe finite-sample bias, and standard inference breaks down.
 </p>
 
-<h3>1.1 The Model 模型设定</h3>
+<h3>1.1 The Model</h3>
 
 <p>
 Consider the standard IV model:
@@ -43,7 +43,7 @@ The <strong>concentration parameter</strong> measures the signal-to-noise ratio 
 When \\(\\mu^2\\) is small, the instrument is <strong>weak</strong>.
 </p>
 
-<h3>1.2 Finite-Sample Bias of 2SLS 有限样本偏差</h3>
+<h3>1.2 Finite-Sample Bias of 2SLS</h3>
 
 <p>
 Bound (1995) showed that the finite-sample bias of 2SLS is approximately:
@@ -313,13 +313,13 @@ An instrument is <strong>weak</strong> if the concentration parameter \\(\\mu^2\
         id: 'ch12-sec02',
         title: '2. Testing for Weak Instruments',
         content: `
-<h2>Testing for Weak Instruments 弱工具变量检验</h2>
+<h2>Testing for Weak Instruments</h2>
 
 <p>
 Since weak instruments can severely distort inference, researchers need reliable diagnostic tests. The primary tool is the first-stage F-statistic, but its interpretation requires care.
 </p>
 
-<h3>2.1 First-Stage F-Statistic 第一阶段F统计量</h3>
+<h3>2.1 First-Stage F-Statistic</h3>
 
 <p>
 In the first-stage regression \\(X_i = \\pi Z_i + W_i'\\gamma + v_i\\), where \\(W_i\\) are included exogenous controls, the partial F-statistic tests:
@@ -338,7 +338,7 @@ A first-stage F-statistic below 10 indicates a weak instrument problem. This rul
 </div>
 </div>
 
-<h3>2.2 Stock-Yogo Critical Values Stock-Yogo临界值</h3>
+<h3>2.2 Stock-Yogo Critical Values</h3>
 
 <p>
 Stock & Yogo (2005) provide formal critical values for the first-stage F-statistic. Their framework addresses two types of problems:
@@ -377,7 +377,7 @@ For a single endogenous regressor and a single instrument, the Stock-Yogo critic
 </tr>
 </table>
 
-<h3>2.3 Effective F-Statistic 有效F统计量</h3>
+<h3>2.3 Effective F-Statistic</h3>
 
 <p>
 Olea & Pflueger (2013) propose the <strong>effective F-statistic</strong>, which is robust to heteroscedasticity, serial correlation, and clustering:
@@ -598,13 +598,13 @@ The standard F-statistic assumes homoscedasticity. When using robust or clustere
         id: 'ch12-sec03',
         title: '3. Anderson-Rubin Confidence Sets',
         content: `
-<h2>Anderson-Rubin Confidence Sets 安德森-鲁宾置信集</h2>
+<h2>Anderson-Rubin Confidence Sets</h2>
 
 <p>
 When instruments are weak, standard Wald-based confidence intervals from 2SLS have incorrect coverage. The <strong>Anderson-Rubin (AR) test</strong> provides inference that is <strong>robust to weak instruments</strong>.
 </p>
 
-<h3>3.1 The AR Test Statistic AR检验统计量</h3>
+<h3>3.1 The AR Test Statistic</h3>
 
 <p>
 The Anderson-Rubin (1949) test statistic for testing \\(H_0: \\beta = \\beta_0\\) is:
@@ -632,7 +632,7 @@ Under \\(H_0: \\beta = \\beta_0\\), the AR statistic has an exact \\(F(k, n-k)\\
 </div>
 </div>
 
-<h3>3.2 AR Confidence Set AR置信集</h3>
+<h3>3.2 AR Confidence Set</h3>
 
 <p>
 The AR confidence set for \\(\\beta\\) at level \\(1 - \\alpha\\) is:
@@ -659,7 +659,7 @@ An unbounded confidence set is informative: it tells you the data cannot disting
 </div>
 </div>
 
-<h3>3.3 Conditional Likelihood Ratio Test 条件似然比检验</h3>
+<h3>3.3 Conditional Likelihood Ratio Test</h3>
 
 <p>
 Moreira (2003) proposed the <strong>Conditional Likelihood Ratio (CLR)</strong> test, which improves on the AR test by being:
@@ -933,13 +933,13 @@ The CLR test is approximately uniformly most powerful (UMP) similar among tests 
         id: 'ch12-sec04',
         title: '4. Many Instruments',
         content: `
-<h2>Many Instruments 多工具变量</h2>
+<h2>Many Instruments</h2>
 
 <p>
 When the number of instruments \\(k\\) is large relative to the sample size \\(n\\), standard 2SLS becomes severely biased even if each instrument is individually strong. This is the <strong>many instruments</strong> problem.
 </p>
 
-<h3>4.1 Bias Amplification with Many IVs 偏差放大</h3>
+<h3>4.1 Bias Amplification with Many IVs</h3>
 
 <p>
 With \\(k\\) instruments, the finite-sample bias of 2SLS is approximately:
@@ -1010,7 +1010,7 @@ The <strong>Jackknife IV Estimator (JIVE)</strong> removes the many-instrument b
 where \\(h_{ii}\\) is the \\(i\\)-th diagonal element of the projection matrix \\(P_Z\\). JIVE is consistent under many-instrument asymptotics.
 </p>
 
-<h3>4.4 Regularized Estimators 正则化估计量</h3>
+<h3>4.4 Regularized Estimators</h3>
 
 <p>
 Modern approaches use regularization to handle many weak instruments:
@@ -1339,13 +1339,13 @@ When the number of instruments is large: (1) Always report LIML alongside 2SLS. 
         id: 'ch12-sec05',
         title: '5. Shift-Share & Bartik Instruments',
         content: `
-<h2>Shift-Share & Bartik Instruments 份额-变动工具变量</h2>
+<h2>Shift-Share & Bartik Instruments</h2>
 
 <p>
 <strong>Shift-share (Bartik) instruments</strong> are among the most widely used instruments in applied economics. They combine cross-sectional variation in <strong>shares</strong> with time-series variation in <strong>shifts</strong> to construct instruments.
 </p>
 
-<h3>5.1 Construction 构造方法</h3>
+<h3>5.1 Construction</h3>
 
 <p>
 The Bartik instrument for location \\(l\\) at time \\(t\\) is:
@@ -1380,7 +1380,7 @@ The idea: national trends in manufacturing affect Detroit more than San Francisc
 </div>
 </div>
 
-<h3>5.2 Two Sources of Identification 两种识别来源</h3>
+<h3>5.2 Two Sources of Identification</h3>
 
 <p>
 A crucial question is: where does identification come from — the shares or the shifts?
@@ -1416,7 +1416,7 @@ where \\(\\bar{\\varepsilon}_{k} = \\sum_l s_{lk,0} \\varepsilon_{lt}\\) is a sh
 </div>
 </div>
 
-<h3>5.3 Practical Implications 实践意义</h3>
+<h3>5.3 Practical Implications</h3>
 
 <div class="env-block remark">
 <div class="env-title">Which Framework to Use?</div>

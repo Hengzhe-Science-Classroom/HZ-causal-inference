@@ -3,7 +3,7 @@ window.CHAPTERS.push({
     id: 'ch17',
     number: 17,
     title: 'Synthetic Control Methods',
-    subtitle: 'Constructing Counterfactuals from Donor Pool 合成控制法',
+    subtitle: 'Constructing Counterfactuals from Donor Pool',
     sections: [
         // ============================================================
         // SECTION 1: The Synthetic Control Idea

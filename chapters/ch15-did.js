@@ -3,7 +3,7 @@ window.CHAPTERS.push({
     id: 'ch15',
     number: 15,
     title: 'Difference-in-Differences',
-    subtitle: 'The Workhorse of Policy Evaluation 双重差分',
+    subtitle: 'The Workhorse of Policy Evaluation',
     sections: [
         // ================================================================
         // SECTION 1: The DiD Idea & 2x2 Design

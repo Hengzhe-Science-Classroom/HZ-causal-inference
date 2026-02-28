@@ -3,7 +3,7 @@ window.CHAPTERS.push({
     id: 'ch09',
     number: 9,
     title: 'Propensity Score Methods',
-    subtitle: 'Dimension Reduction for Causal Inference 倾向得分方法',
+    subtitle: 'Dimension Reduction for Causal Inference',
     sections: [
         // ============================================================
         // Section 1: Propensity Score Definition & Properties

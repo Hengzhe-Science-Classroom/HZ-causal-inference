@@ -1,13 +1,13 @@
 // ============================================================
-// Chapter 3 · d-Separation & Conditional Independence
-// Reading Independence from Graphs d-分离与条件独立
+// Chapter 3 d-Separation & Conditional Independence
+// Reading Independence from Graphs
 // ============================================================
 window.CHAPTERS = window.CHAPTERS || [];
 window.CHAPTERS.push({
     id: 'ch03',
     number: 3,
     title: 'd-Separation & Conditional Independence',
-    subtitle: 'Reading Independence from Graphs d-分离与条件独立',
+    subtitle: 'Reading Independence from Graphs',
     sections: [
         // --------------------------------------------------------
         // Section 1: Paths in DAGs

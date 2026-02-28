@@ -1,13 +1,13 @@
 // ============================================================
 // Chapter 14 · Fixed Effects & Within Estimation
-// Controlling for Unobserved Heterogeneity 固定效应与组内估计
+// Controlling for Unobserved Heterogeneity
 // ============================================================
 window.CHAPTERS = window.CHAPTERS || [];
 window.CHAPTERS.push({
     id: 'ch14',
     number: 14,
     title: 'Fixed Effects & Within Estimation',
-    subtitle: 'Controlling for Unobserved Heterogeneity 固定效应与组内估计',
+    subtitle: 'Controlling for Unobserved Heterogeneity',
     sections: [
         // --------------------------------------------------------
         // Section 1: Panel Data Structure

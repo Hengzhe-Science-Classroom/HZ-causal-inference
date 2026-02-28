@@ -3,7 +3,7 @@ window.CHAPTERS.push({
     id: 'ch13',
     number: 13,
     title: 'Regression Discontinuity Design',
-    subtitle: 'Causal Inference at the Cutoff 回归断点设计',
+    subtitle: 'Causal Inference at the Cutoff',
     sections: [
         // ============================================================
         // SECTION 1: Sharp RDD

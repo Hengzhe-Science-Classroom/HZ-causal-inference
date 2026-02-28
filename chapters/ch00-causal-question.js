@@ -3,27 +3,27 @@ window.CHAPTERS.push({
     id: 'ch00',
     number: 0,
     title: 'The Causal Question',
-    subtitle: 'Correlation, Causation, and the Fundamental Problem 因果问题',
+    subtitle: 'Correlation, Causation, and the Fundamental Problem',
     sections: [
         // ===== Section 1: Correlation vs Causation =====
         {
             id: 'ch00-sec01',
             title: 'Correlation vs Causation',
             content: `
-                <h2>Correlation vs Causation 相关与因果</h2>
+                <h2>Correlation vs Causation</h2>
 
                 <div class="env-block intuition">
                     <div class="env-title">Intuition</div>
                     <div class="env-body">
-                        <p>Perhaps the most important lesson in all of statistics is that <strong>correlation does not imply causation</strong> (相关不意味着因果). When we observe that two variables move together, it is tempting to conclude that one causes the other. But observed associations can arise from many sources: direct causation, reverse causation, or the presence of a lurking <strong>confounding variable</strong> (混杂变量) that drives both.</p>
+                        <p>Perhaps the most important lesson in all of statistics is that <strong>correlation does not imply causation</strong>. When we observe that two variables move together, it is tempting to conclude that one causes the other. But observed associations can arise from many sources: direct causation, reverse causation, or the presence of a lurking <strong>confounding variable</strong> that drives both.</p>
                     </div>
                 </div>
 
                 <div class="env-block example">
                     <div class="env-title">Example 0.1 (Ice Cream and Drowning)</div>
                     <div class="env-body">
-                        <p>Data show a strong positive correlation between ice cream sales and drowning deaths. Does eating ice cream cause drowning? Of course not. The confounding variable is <strong>temperature</strong> (气温): hot weather increases both ice cream consumption and swimming activity, which in turn increases drowning risk.</p>
-                        <p>Schematically: Temperature \\(\\to\\) Ice Cream Sales, and Temperature \\(\\to\\) Swimming \\(\\to\\) Drowning. The association between ice cream and drowning is entirely <strong>spurious</strong> (虚假的).</p>
+                        <p>Data show a strong positive correlation between ice cream sales and drowning deaths. Does eating ice cream cause drowning? Of course not. The confounding variable is <strong>temperature</strong>: hot weather increases both ice cream consumption and swimming activity, which in turn increases drowning risk.</p>
+                        <p>Schematically: Temperature \\(\\to\\) Ice Cream Sales, and Temperature \\(\\to\\) Swimming \\(\\to\\) Drowning. The association between ice cream and drowning is entirely <strong>spurious</strong>.</p>
                     </div>
                 </div>
 
@@ -39,8 +39,8 @@ window.CHAPTERS.push({
                     <div class="env-body">
                         <p>Let \\(X\\) denote a treatment and \\(Y\\) an outcome. We distinguish two fundamentally different probability distributions:</p>
                         <ul>
-                            <li><strong>Observational distribution</strong> (观测分布): \\(P(Y \\mid X = x)\\) — the distribution of \\(Y\\) among units that <em>happen to have</em> \\(X = x\\).</li>
-                            <li><strong>Interventional distribution</strong> (干预分布): \\(P(Y \\mid \\text{do}(X = x))\\) — the distribution of \\(Y\\) if we <em>intervene</em> to set \\(X = x\\) for everyone, using Pearl's \\(\\text{do}\\)-operator.</li>
+                            <li><strong>Observational distribution</strong>: \\(P(Y \\mid X = x)\\) — the distribution of \\(Y\\) among units that <em>happen to have</em> \\(X = x\\).</li>
+                            <li><strong>Interventional distribution</strong>: \\(P(Y \\mid \\text{do}(X = x))\\) — the distribution of \\(Y\\) if we <em>intervene</em> to set \\(X = x\\) for everyone, using Pearl's \\(\\text{do}\\)-operator.</li>
                         </ul>
                         <p>The central insight of causal inference is:</p>
                         \\[P(Y \\mid X = x) \\neq P(Y \\mid \\text{do}(X = x)) \\quad \\text{in general.}\\]
@@ -51,11 +51,11 @@ window.CHAPTERS.push({
                 <div class="env-block remark">
                     <div class="env-title">Remark</div>
                     <div class="env-body">
-                        <p>The notation \\(\\text{do}(X = x)\\) was introduced by Judea Pearl to formalize the concept of an <strong>intervention</strong> (干预). Conditioning on \\(X = x\\) in observational data selects units with that value; intervening on \\(X = x\\) physically sets the value, breaking all incoming causal arrows to \\(X\\). This distinction is the backbone of the structural causal model (SCM) framework we will develop in Chapter 2.</p>
+                        <p>The notation \\(\\text{do}(X = x)\\) was introduced by Judea Pearl to formalize the concept of an <strong>intervention</strong>. Conditioning on \\(X = x\\) in observational data selects units with that value; intervening on \\(X = x\\) physically sets the value, breaking all incoming causal arrows to \\(X\\). This distinction is the backbone of the structural causal model (SCM) framework we will develop in Chapter 2.</p>
                     </div>
                 </div>
 
-                <p>The visualization below demonstrates a <strong>spurious correlation</strong> (虚假相关). A hidden confounder \\(Z\\) (temperature) drives both \\(X\\) (ice cream sales) and \\(Y\\) (drowning incidents). Toggle the confounder to see how the apparent relationship between \\(X\\) and \\(Y\\) changes when we account for \\(Z\\).</p>
+                <p>The visualization below demonstrates a <strong>spurious correlation</strong>. A hidden confounder \\(Z\\) (temperature) drives both \\(X\\) (ice cream sales) and \\(Y\\) (drowning incidents). Toggle the confounder to see how the apparent relationship between \\(X\\) and \\(Y\\) changes when we account for \\(Z\\).</p>
 
                 <div class="viz-placeholder" data-viz="spurious-correlation-viz"></div>
             `,
@@ -262,12 +262,12 @@ window.CHAPTERS.push({
             id: 'ch00-sec02',
             title: "Simpson's Paradox",
             content: `
-                <h2>Simpson's Paradox 辛普森悖论</h2>
+                <h2>Simpson's Paradox</h2>
 
                 <div class="env-block intuition">
                     <div class="env-title">Intuition</div>
                     <div class="env-body">
-                        <p><strong>Simpson's Paradox</strong> (辛普森悖论) is a dramatic illustration of how confounding can mislead. It occurs when a trend that appears in several subgroups <em>reverses</em> when the subgroups are combined. The "paradox" is resolved by understanding that the aggregated data confounds the treatment effect with a confounding variable that affects both treatment assignment and outcome.</p>
+                        <p><strong>Simpson's Paradox</strong> is a dramatic illustration of how confounding can mislead. It occurs when a trend that appears in several subgroups <em>reverses</em> when the subgroups are combined. The "paradox" is resolved by understanding that the aggregated data confounds the treatment effect with a confounding variable that affects both treatment assignment and outcome.</p>
                     </div>
                 </div>
 
@@ -503,19 +503,19 @@ window.CHAPTERS.push({
             id: 'ch00-sec03',
             title: 'Counterfactual Thinking',
             content: `
-                <h2>Counterfactual Thinking 反事实思维</h2>
+                <h2>Counterfactual Thinking</h2>
 
                 <div class="env-block intuition">
                     <div class="env-title">Intuition</div>
                     <div class="env-body">
-                        <p><strong>Counterfactual reasoning</strong> (反事实推理) is the foundation of how humans think about causation in everyday life. "If I had not taken the aspirin, would my headache have persisted?" "If the government had not implemented the policy, what would unemployment have been?" These "what if" questions define causal effects by comparing what <em>actually happened</em> with what <em>would have happened</em> under an alternative scenario.</p>
+                        <p><strong>Counterfactual reasoning</strong> is the foundation of how humans think about causation in everyday life. "If I had not taken the aspirin, would my headache have persisted?" "If the government had not implemented the policy, what would unemployment have been?" These "what if" questions define causal effects by comparing what <em>actually happened</em> with what <em>would have happened</em> under an alternative scenario.</p>
                     </div>
                 </div>
 
                 <div class="env-block definition">
                     <div class="env-title">Definition 0.8 (Potential Outcomes)</div>
                     <div class="env-body">
-                        <p>For a binary treatment \\(X \\in \\{0,1\\}\\), each unit \\(i\\) has two <strong>potential outcomes</strong> (潜在结果):</p>
+                        <p>For a binary treatment \\(X \\in \\{0,1\\}\\), each unit \\(i\\) has two <strong>potential outcomes</strong>:</p>
                         <ul>
                             <li>\\(Y_i(1)\\): the outcome unit \\(i\\) would experience <em>if treated</em> (\\(X_i = 1\\))</li>
                             <li>\\(Y_i(0)\\): the outcome unit \\(i\\) would experience <em>if not treated</em> (\\(X_i = 0\\))</li>
@@ -527,7 +527,7 @@ window.CHAPTERS.push({
                 <div class="env-block definition">
                     <div class="env-title">Definition 0.9 (Individual Causal Effect)</div>
                     <div class="env-body">
-                        <p>The <strong>individual causal effect</strong> (个体因果效应) of treatment on unit \\(i\\) is:</p>
+                        <p>The <strong>individual causal effect</strong> of treatment on unit \\(i\\) is:</p>
                         \\[\\tau_i = Y_i(1) - Y_i(0).\\]
                         <p>This is the difference between what would happen to unit \\(i\\) under treatment versus control.</p>
                     </div>
@@ -536,11 +536,11 @@ window.CHAPTERS.push({
                 <div class="env-block definition">
                     <div class="env-title">Definition 0.10 (Average Treatment Effect)</div>
                     <div class="env-body">
-                        <p>The <strong>Average Treatment Effect</strong> (平均处理效应, ATE) is the population average of individual causal effects:</p>
+                        <p>The <strong>Average Treatment Effect</strong> (ATE) is the population average of individual causal effects:</p>
                         \\[\\text{ATE} = E[Y(1) - Y(0)] = E[Y(1)] - E[Y(0)].\\]
                         <p>Related quantities include:</p>
                         <ul>
-                            <li><strong>ATT</strong> (Average Treatment Effect on the Treated, 处理组平均处理效应): \\(E[Y(1) - Y(0) \\mid X = 1]\\)</li>
+                            <li><strong>ATT</strong> (Average Treatment Effect on the Treated): \\(E[Y(1) - Y(0) \\mid X = 1]\\)</li>
                             <li><strong>ATC</strong> (Average Treatment Effect on the Controls): \\(E[Y(1) - Y(0) \\mid X = 0]\\)</li>
                         </ul>
                     </div>
@@ -551,14 +551,14 @@ window.CHAPTERS.push({
                     <div class="env-body">
                         <p>For each unit \\(i\\), we observe only <strong>one</strong> of the two potential outcomes:</p>
                         \\[Y_i^{\\text{obs}} = X_i \\cdot Y_i(1) + (1 - X_i) \\cdot Y_i(0).\\]
-                        <p>The other potential outcome is <strong>counterfactual</strong> (反事实的) and fundamentally unobservable. We can never simultaneously observe both \\(Y_i(1)\\) and \\(Y_i(0)\\) for the same unit at the same time. This is the <strong>Fundamental Problem of Causal Inference</strong> (因果推断的根本问题), as named by Holland (1986).</p>
+                        <p>The other potential outcome is <strong>counterfactual</strong> and fundamentally unobservable. We can never simultaneously observe both \\(Y_i(1)\\) and \\(Y_i(0)\\) for the same unit at the same time. This is the <strong>Fundamental Problem of Causal Inference</strong>, as named by Holland (1986).</p>
                     </div>
                 </div>
 
                 <div class="env-block remark">
                     <div class="env-title">Remark</div>
                     <div class="env-body">
-                        <p>The potential outcomes framework transforms the causal inference problem into a <strong>missing data problem</strong> (缺失数据问题). For each unit, exactly one potential outcome is observed and the other is missing. The challenge of causal inference is to fill in these missing values, or more precisely, to estimate population-level summaries (like the ATE) despite the missingness.</p>
+                        <p>The potential outcomes framework transforms the causal inference problem into a <strong>missing data problem</strong>. For each unit, exactly one potential outcome is observed and the other is missing. The challenge of causal inference is to fill in these missing values, or more precisely, to estimate population-level summaries (like the ATE) despite the missingness.</p>
                     </div>
                 </div>
 
@@ -761,7 +761,7 @@ window.CHAPTERS.push({
             id: 'ch00-sec04',
             title: 'The Fundamental Problem of Causal Inference',
             content: `
-                <h2>The Fundamental Problem of Causal Inference 因果推断的根本问题</h2>
+                <h2>The Fundamental Problem of Causal Inference</h2>
 
                 <div class="env-block intuition">
                     <div class="env-title">Intuition</div>
@@ -773,11 +773,11 @@ window.CHAPTERS.push({
                 <div class="env-block definition">
                     <div class="env-title">Definition 0.12 (SUTVA: Stable Unit Treatment Value Assumption)</div>
                     <div class="env-body">
-                        <p>The <strong>Stable Unit Treatment Value Assumption</strong> (稳定单元处理值假设, SUTVA) consists of two components:</p>
+                        <p>The <strong>Stable Unit Treatment Value Assumption</strong> (SUTVA) consists of two components:</p>
                         <ol>
-                            <li><strong>No interference</strong> (无干扰): Unit \\(i\\)'s potential outcomes depend only on its own treatment, not on the treatments of other units:
+                            <li><strong>No interference</strong>: Unit \\(i\\)'s potential outcomes depend only on its own treatment, not on the treatments of other units:
                             \\[Y_i(X_1, X_2, \\ldots, X_n) = Y_i(X_i).\\]</li>
-                            <li><strong>No hidden variations of treatment</strong> (无隐藏处理变异): There is only one version of each treatment level. If \\(X_i = 1\\), the treatment received is the same regardless of how \\(X_i\\) came to equal 1.</li>
+                            <li><strong>No hidden variations of treatment</strong>: There is only one version of each treatment level. If \\(X_i = 1\\), the treatment received is the same regardless of how \\(X_i\\) came to equal 1.</li>
                         </ol>
                     </div>
                 </div>
@@ -785,14 +785,14 @@ window.CHAPTERS.push({
                 <div class="env-block remark">
                     <div class="env-title">Remark</div>
                     <div class="env-body">
-                        <p>SUTVA is often violated in practice. <strong>Interference</strong> (干扰效应) occurs in vaccination programs (my vaccination protects you via herd immunity), social networks (my behavior affects my friends), and markets (one firm's strategy affects competitors). <strong>Treatment variation</strong> (处理变异) occurs when "the same treatment" is administered differently (different surgeons, different drug manufacturers). Violations of SUTVA require more complex frameworks, such as the study of interference and spillover effects.</p>
+                        <p>SUTVA is often violated in practice. <strong>Interference</strong> occurs in vaccination programs (my vaccination protects you via herd immunity), social networks (my behavior affects my friends), and markets (one firm's strategy affects competitors). <strong>Treatment variation</strong> occurs when "the same treatment" is administered differently (different surgeons, different drug manufacturers). Violations of SUTVA require more complex frameworks, such as the study of interference and spillover effects.</p>
                     </div>
                 </div>
 
                 <div class="env-block definition">
                     <div class="env-title">Definition 0.13 (Assignment Mechanism)</div>
                     <div class="env-body">
-                        <p>The <strong>assignment mechanism</strong> (分配机制) is the probabilistic rule that determines which units receive treatment. Formally, it is the conditional distribution:</p>
+                        <p>The <strong>assignment mechanism</strong> is the probabilistic rule that determines which units receive treatment. Formally, it is the conditional distribution:</p>
                         \\[P(X_1, \\ldots, X_n \\mid Y_1(0), Y_1(1), \\ldots, Y_n(0), Y_n(1), W)\\]
                         <p>where \\(W\\) denotes observed covariates. The assignment mechanism is the key to understanding when causal effects are identifiable:</p>
                         <ul>
@@ -806,9 +806,9 @@ window.CHAPTERS.push({
                 <div class="env-block theorem">
                     <div class="env-title">Theorem 0.14 (Identification under Unconfoundedness)</div>
                     <div class="env-body">
-                        <p>If the assignment mechanism satisfies <strong>unconfoundedness</strong> (无混杂性) — also called ignorability or conditional independence assumption (CIA):</p>
+                        <p>If the assignment mechanism satisfies <strong>unconfoundedness</strong> — also called ignorability or conditional independence assumption (CIA):</p>
                         \\[(Y(0), Y(1)) \\perp\\!\\!\\!\\perp X \\mid W,\\]
-                        <p>and <strong>overlap</strong> (重叠性) — also called positivity:</p>
+                        <p>and <strong>overlap</strong> — also called positivity:</p>
                         \\[0 < P(X = 1 \\mid W = w) < 1 \\quad \\text{for all } w,\\]
                         <p>then the ATE is identified:</p>
                         \\[\\text{ATE} = E_W[E[Y \\mid X = 1, W] - E[Y \\mid X = 0, W]].\\]
@@ -1059,7 +1059,7 @@ window.CHAPTERS.push({
             id: 'ch00-sec05',
             title: 'Overview of Causal Inference Methods',
             content: `
-                <h2>Overview of Causal Inference Methods 因果推断方法概览</h2>
+                <h2>Overview of Causal Inference Methods</h2>
 
                 <div class="env-block intuition">
                     <div class="env-title">Intuition</div>
@@ -1073,33 +1073,33 @@ window.CHAPTERS.push({
                     <div class="env-body">
                         <p>Causal inference methods can be broadly classified by their source of identifying variation:</p>
                         <ol>
-                            <li><strong>Experimental methods</strong> (实验方法): The researcher controls treatment assignment.
+                            <li><strong>Experimental methods</strong>: The researcher controls treatment assignment.
                                 <ul>
-                                    <li><strong>Randomized Controlled Trials (RCT)</strong> (随机对照试验): Random assignment ensures unconfoundedness. The gold standard. (Chapters 5-7)</li>
+                                    <li><strong>Randomized Controlled Trials (RCT)</strong>: Random assignment ensures unconfoundedness. The gold standard. (Chapters 5-7)</li>
                                 </ul>
                             </li>
-                            <li><strong>Selection-on-observables methods</strong> (基于可观测变量的选择方法): Assume all confounders are observed.
+                            <li><strong>Selection-on-observables methods</strong>: Assume all confounders are observed.
                                 <ul>
-                                    <li><strong>Matching</strong> (匹配): Pair treated and control units with similar covariates. (Chapter 8-9)</li>
-                                    <li><strong>Propensity Score Methods</strong> (倾向得分方法): Model the probability of treatment to adjust for confounding. (Chapter 9)</li>
-                                    <li><strong>Doubly Robust Estimation</strong> (双重稳健估计): Combines outcome modeling and propensity score weighting. (Chapter 10)</li>
+                                    <li><strong>Matching</strong>: Pair treated and control units with similar covariates. (Chapter 8-9)</li>
+                                    <li><strong>Propensity Score Methods</strong>: Model the probability of treatment to adjust for confounding. (Chapter 9)</li>
+                                    <li><strong>Doubly Robust Estimation</strong>: Combines outcome modeling and propensity score weighting. (Chapter 10)</li>
                                 </ul>
                             </li>
-                            <li><strong>Instrumental Variables methods</strong> (工具变量方法): Exploit an exogenous source of variation in treatment.
+                            <li><strong>Instrumental Variables methods</strong>: Exploit an exogenous source of variation in treatment.
                                 <ul>
-                                    <li><strong>IV / 2SLS</strong> (工具变量 / 两阶段最小二乘): Use an instrument correlated with treatment but not directly with the outcome. (Chapters 11-12)</li>
+                                    <li><strong>IV / 2SLS</strong>: Use an instrument correlated with treatment but not directly with the outcome. (Chapters 11-12)</li>
                                 </ul>
                             </li>
-                            <li><strong>Discontinuity-based methods</strong> (断点方法): Exploit sharp changes in treatment probability.
+                            <li><strong>Discontinuity-based methods</strong>: Exploit sharp changes in treatment probability.
                                 <ul>
-                                    <li><strong>Regression Discontinuity Design (RDD)</strong> (回归断点设计): Treatment determined by a threshold on a running variable. (Chapter 13)</li>
+                                    <li><strong>Regression Discontinuity Design (RDD)</strong>: Treatment determined by a threshold on a running variable. (Chapter 13)</li>
                                 </ul>
                             </li>
-                            <li><strong>Panel data / time-series methods</strong> (面板数据方法): Use longitudinal data to control for unobserved confounding.
+                            <li><strong>Panel data / time-series methods</strong>: Use longitudinal data to control for unobserved confounding.
                                 <ul>
-                                    <li><strong>Fixed Effects</strong> (固定效应): Remove time-invariant unobserved heterogeneity. (Chapter 14)</li>
-                                    <li><strong>Difference-in-Differences (DiD)</strong> (双重差分): Compare changes over time between treated and control groups. (Chapters 15-16)</li>
-                                    <li><strong>Synthetic Control</strong> (合成控制): Construct a weighted combination of control units to approximate the counterfactual. (Chapter 17)</li>
+                                    <li><strong>Fixed Effects</strong>: Remove time-invariant unobserved heterogeneity. (Chapter 14)</li>
+                                    <li><strong>Difference-in-Differences (DiD)</strong>: Compare changes over time between treated and control groups. (Chapters 15-16)</li>
+                                    <li><strong>Synthetic Control</strong>: Construct a weighted combination of control units to approximate the counterfactual. (Chapter 17)</li>
                                 </ul>
                             </li>
                         </ol>
@@ -1109,7 +1109,7 @@ window.CHAPTERS.push({
                 <div class="env-block remark">
                     <div class="env-title">Remark (Choosing the Right Method)</div>
                     <div class="env-body">
-                        <p>The choice of method should be driven by the <strong>institutional context</strong> (制度背景) and <strong>data structure</strong>, not by convenience. Key questions:</p>
+                        <p>The choice of method should be driven by the <strong>institutional context</strong> and <strong>data structure</strong>, not by convenience. Key questions:</p>
                         <ul>
                             <li>Is treatment randomly assigned? \\(\\to\\) RCT analysis</li>
                             <li>Can we credibly argue all confounders are observed? \\(\\to\\) Matching / propensity scores</li>
@@ -1125,8 +1125,8 @@ window.CHAPTERS.push({
                     <div class="env-body">
                         <p>Throughout this course, we will move between two complementary frameworks for causal reasoning:</p>
                         <ul>
-                            <li>The <strong>Potential Outcomes Framework</strong> (潜在结果框架, Neyman-Rubin): Defines causal effects as comparisons of potential outcomes. Closely tied to experimental design and statistical estimation. (Chapter 1)</li>
-                            <li>The <strong>Structural Causal Model (SCM) / DAG Framework</strong> (结构因果模型 / 有向无环图框架, Pearl): Defines causal effects through interventions on a graphical model. Provides tools for determining when causal effects are identifiable from observational data. (Chapters 2-4)</li>
+                            <li>The <strong>Potential Outcomes Framework</strong> (Neyman-Rubin): Defines causal effects as comparisons of potential outcomes. Closely tied to experimental design and statistical estimation. (Chapter 1)</li>
+                            <li>The <strong>Structural Causal Model (SCM) / DAG Framework</strong> (Pearl): Defines causal effects through interventions on a graphical model. Provides tools for determining when causal effects are identifiable from observational data. (Chapters 2-4)</li>
                         </ul>
                         <p>These frameworks are largely compatible and offer different but complementary perspectives. Mastering both gives the deepest understanding of causal inference.</p>
                     </div>

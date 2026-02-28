@@ -1,5 +1,5 @@
 // ============================================================
-// Chapter 2 · 结构因果模型与有向无环图
+// Chapter 2
 // Structural Causal Models & DAGs
 // ============================================================
 window.CHAPTERS = window.CHAPTERS || [];
@@ -7,7 +7,7 @@ window.CHAPTERS.push({
     id: 'ch02',
     number: 2,
     title: 'Structural Causal Models & DAGs',
-    subtitle: 'Pearl\'s Framework for Causal Reasoning 结构因果模型与有向无环图',
+    subtitle: 'Pearl\'s Framework for Causal Reasoning',
     sections: [
         // --------------------------------------------------------
         // Section 1: Structural Equations & Functional Causal Model

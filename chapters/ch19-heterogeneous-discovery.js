@@ -1,18 +1,18 @@
 // ============================================================
 //  Ch 19 · Heterogeneous Treatment Effects & Discovery
-//  异质性处理效应与发现
+//  Heterogeneous Treatment Effects & Discovery
 // ============================================================
 window.CHAPTERS.push({
     id: 'ch19',
     number: 19,
     title: 'Heterogeneous Treatment Effects & Discovery',
-    subtitle: 'Who Benefits Most? 异质性处理效应与发现',
+    subtitle: 'Who Benefits Most?',
     sections: [
         // ===== Section 1: CATE & Conditional Average Treatment Effects =====
         {
             id: 'ch19-sec01',
             title: 'CATE & Conditional Average Treatment Effects',
-            content: `<h2>1 CATE & Conditional Average Treatment Effects 条件平均处理效应</h2>
+            content: `<h2>1 CATE & Conditional Average Treatment Effects</h2>
 <p>Throughout this course we have focused on the <strong>Average Treatment Effect (ATE)</strong>, a single number summarizing the causal impact across the entire population. But a single average can mask dramatic variation: a drug might help women but harm men, a job training program might benefit young workers but not older ones. The <strong>Conditional Average Treatment Effect (CATE)</strong> captures this heterogeneity.</p>
 
 <div class="env-block definition">
@@ -244,7 +244,7 @@ window.CHAPTERS.push({
         {
             id: 'ch19-sec02',
             title: 'Causal Forests',
-            content: `<h2>2 Causal Forests 因果森林</h2>
+            content: `<h2>2 Causal Forests</h2>
 <p>How can we estimate the CATE function \\(\\tau(x)\\) from data without specifying its functional form in advance? <strong>Causal forests</strong> (Wager & Athey 2018) adapt the random forest algorithm to directly target treatment effect heterogeneity, providing both point estimates and valid confidence intervals.</p>
 
 <div class="env-block definition">
@@ -527,7 +527,7 @@ window.CHAPTERS.push({
         {
             id: 'ch19-sec03',
             title: 'Meta-Learners',
-            content: `<h2>3 Meta-Learners 元学习器</h2>
+            content: `<h2>3 Meta-Learners</h2>
 <p>Meta-learners are strategies that combine off-the-shelf supervised learning algorithms to estimate the CATE \\(\\tau(x)\\). The term "meta" refers to the fact that these are recipes (meta-algorithms) that wrap any base learner (random forests, boosting, neural networks, etc.) rather than being specific algorithms themselves.</p>
 
 <div class="env-block definition">
@@ -883,7 +883,7 @@ window.CHAPTERS.push({
         {
             id: 'ch19-sec04',
             title: 'Policy Learning & Optimal Treatment Rules',
-            content: `<h2>4 Policy Learning & Optimal Treatment Rules 策略学习与最优处理规则</h2>
+            content: `<h2>4 Policy Learning & Optimal Treatment Rules</h2>
 <p>Estimating the CATE is an intermediate step. The ultimate goal is often to make <strong>decisions</strong>: given a patient's characteristics, should we treat or not? Policy learning formalizes this as an optimization problem.</p>
 
 <div class="env-block definition">
@@ -1180,7 +1180,7 @@ window.CHAPTERS.push({
         {
             id: 'ch19-sec05',
             title: 'Double/Debiased Machine Learning',
-            content: `<h2>5 Double/Debiased Machine Learning 双重/去偏机器学习</h2>
+            content: `<h2>5 Double/Debiased Machine Learning</h2>
 <p>The methods in the previous sections estimate the full CATE function \\(\\tau(x)\\). But sometimes we care about a <strong>single low-dimensional parameter</strong>, such as the ATE \\(\\theta = E[Y(1) - Y(0)]\\), while allowing high-dimensional or nonparametric nuisance functions. <strong>Double/Debiased Machine Learning (DML)</strong> (Chernozhukov et al. 2018) provides a general framework for \\(\\sqrt{n}\\)-consistent, asymptotically normal inference on such parameters, even when nuisance functions are estimated with machine learning.</p>
 
 <div class="env-block definition">
