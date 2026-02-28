@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Causal Inference · Interactive Course</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <button id="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+        <aside id="sidebar">
+            <div id="sidebar-header">
+                <h1>Causal Inference</h1>
+                <p class="author">Imbens & Rubin · Pearl · Cunningham · Hernan & Robins · Angrist & Pischke</p>
+                <div id="progress-container">
+                    <div id="progress-bar"><div id="progress-fill"></div></div>
+                    <span id="progress-text">0%</span>
+                </div>
+            </div>
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Search topics...">
+            </div>
+            <nav id="chapter-nav"></nav>
+            <div id="sidebar-footer"><p class="copyright-notice" style="font-size:0.7rem;color:#888;margin-top:12px;text-align:center;">&copy; 2026 Hengzhe Zhao · AGPL-3.0 &amp; Commercial</p>
+                <button id="reset-progress">Reset Progress</button>
+            </div>
+        </aside>
+        <main id="main-content">
+            <div id="welcome-screen">
+                <div class="welcome-hero">
+                    <h1>Causal Inference</h1>
+                    <h2>因果推断 — An Interactive Journey</h2>
+                    <p class="welcome-description">
+                        A rigorous, visualization-driven course through causal inference,
+                        from potential outcomes and structural causal models to modern panel data methods
+                        and heterogeneous treatment effect discovery.
+                        Based on Imbens & Rubin, Pearl, Cunningham, Hernan & Robins, and Angrist & Pischke.
+                    </p>
+                </div>
+                <div class="roadmap">
+                    <h3>Course Roadmap</h3>
+                    <div class="roadmap-parts">
+                        <div class="roadmap-part">
+                            <h4>Part A: 因果推断框架 Causal Inference Frameworks</h4>
+                            <ul>
+                                <li>Ch 0: The Causal Question</li>
+                                <li>Ch 1: Potential Outcomes Framework</li>
+                                <li>Ch 2: Structural Causal Models & DAGs</li>
+                                <li>Ch 3: d-Separation & Conditional Independence</li>
+                                <li>Ch 4: do-Calculus & Identification</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-part">
+                            <h4>Part B: 随机化实验 Randomized Experiments</h4>
+                            <ul>
+                                <li>Ch 5: Randomized Controlled Trials</li>
+                                <li>Ch 6: Advanced Experimental Design</li>
+                                <li>Ch 7: Statistical Power & A/B Testing</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-part">
+                            <h4>Part C: 选择偏差与匹配 Selection Bias & Matching</h4>
+                            <ul>
+                                <li>Ch 8: Selection Bias & Confounding</li>
+                                <li>Ch 9: Propensity Score Methods</li>
+                                <li>Ch 10: Doubly Robust Estimation</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-part">
+                            <h4>Part D: 工具变量与回归断点 IV & RDD</h4>
+                            <ul>
+                                <li>Ch 11: Instrumental Variables</li>
+                                <li>Ch 12: Weak Instruments & Many IVs</li>
+                                <li>Ch 13: Regression Discontinuity Design</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-part">
+                            <h4>Part E: 面板数据方法 Panel Data Methods</h4>
+                            <ul>
+                                <li>Ch 14: Fixed Effects & Within Estimation</li>
+                                <li>Ch 15: Difference-in-Differences</li>
+                                <li>Ch 16: Staggered DiD & Event Studies</li>
+                                <li>Ch 17: Synthetic Control Methods</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-part">
+                            <h4>Part F: 高级主题 Advanced Topics</h4>
+                            <ul>
+                                <li>Ch 18: Mediation Analysis & Sensitivity</li>
+                                <li>Ch 19: Heterogeneous Treatment Effects & Discovery</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="welcome-start">Select a chapter from the sidebar to begin.</p>
+            </div>
+            <div id="chapter-content" style="display:none;">
+                <div id="chapter-header">
+                    <div id="chapter-number-badge"></div>
+                    <h1 id="chapter-title"></h1>
+                    <p id="chapter-subtitle"></p>
+                </div>
+                <div id="section-tabs"></div>
+                <article id="section-content"></article>
+                <div id="exercises-panel" style="display:none;">
+                    <h3>Exercises</h3>
+                    <div id="exercises-list"></div>
+                </div>
+                <div id="chapter-nav-buttons">
+                    <button id="prev-btn" disabled>&larr; Previous</button>
+                    <span id="section-indicator"></span>
+                    <button id="next-btn">Next &rarr;</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="viz-engine.js"></script>
+
+    <!-- Chapter manifest for lazy loading -->
+    <script>
+    window.CHAPTER_MANIFEST = [
+        {number:0,  id:'ch00', title:'The Causal Question',                              file:'ch00-causal-question'},
+        {number:1,  id:'ch01', title:'Potential Outcomes Framework',                      file:'ch01-potential-outcomes'},
+        {number:2,  id:'ch02', title:'Structural Causal Models & DAGs',                   file:'ch02-scm-dags'},
+        {number:3,  id:'ch03', title:'d-Separation & Conditional Independence',           file:'ch03-d-separation'},
+        {number:4,  id:'ch04', title:'do-Calculus & Identification',                      file:'ch04-do-calculus'},
+        {number:5,  id:'ch05', title:'Randomized Controlled Trials',                      file:'ch05-rct'},
+        {number:6,  id:'ch06', title:'Advanced Experimental Design',                      file:'ch06-advanced-design'},
+        {number:7,  id:'ch07', title:'Statistical Power & A/B Testing',                   file:'ch07-power-ab-testing'},
+        {number:8,  id:'ch08', title:'Selection Bias & Confounding',                      file:'ch08-selection-bias'},
+        {number:9,  id:'ch09', title:'Propensity Score Methods',                          file:'ch09-propensity-scores'},
+        {number:10, id:'ch10', title:'Doubly Robust Estimation',                          file:'ch10-doubly-robust'},
+        {number:11, id:'ch11', title:'Instrumental Variables',                            file:'ch11-instrumental-variables'},
+        {number:12, id:'ch12', title:'Weak Instruments & Many IVs',                       file:'ch12-weak-iv'},
+        {number:13, id:'ch13', title:'Regression Discontinuity Design',                   file:'ch13-rdd'},
+        {number:14, id:'ch14', title:'Fixed Effects & Within Estimation',                 file:'ch14-fixed-effects'},
+        {number:15, id:'ch15', title:'Difference-in-Differences',                         file:'ch15-did'},
+        {number:16, id:'ch16', title:'Staggered DiD & Event Studies',                     file:'ch16-staggered-did'},
+        {number:17, id:'ch17', title:'Synthetic Control Methods',                         file:'ch17-synthetic-control'},
+        {number:18, id:'ch18', title:'Mediation Analysis & Sensitivity',                  file:'ch18-mediation-sensitivity'},
+        {number:19, id:'ch19', title:'Heterogeneous Treatment Effects & Discovery',       file:'ch19-heterogeneous-discovery'}
+    ];
+    </script>
+
+    <script src="app.js"></script>
+</body>
+</html>
