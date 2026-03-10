@@ -12,6 +12,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Correlation vs Causation</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Opening</div>
+                    <div class="env-body">
+                        <p>Welcome to the first chapter of our journey through causal inference. Before we can estimate causal effects, we must first understand why the question is hard in the first place. This chapter introduces the core conceptual distinctions that motivate the entire field: the gap between correlation and causation, the logic of counterfactual reasoning, and the fundamental impossibility that makes causal inference both challenging and fascinating.</p>
+                        <p><strong>What lies ahead in this chapter:</strong> We begin with the distinction between correlation and causation (Section 1), then see how confounding can dramatically mislead through Simpson's Paradox (Section 2). We formalize "what if" reasoning through counterfactual thinking (Section 3), confront the Fundamental Problem of causal inference (Section 4), and close with a roadmap of the methods we will develop throughout this course (Section 5).</p>
+                    </div>
+                </div>
+
                 <div class="env-block intuition">
                     <div class="env-title">Intuition</div>
                     <div class="env-body">
@@ -264,6 +272,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Simpson's Paradox</h2>
 
+                <p class="section-bridge">In the previous section, we saw that correlation does not imply causation because of confounding variables. But how bad can confounding get? In this section, we encounter its most dramatic manifestation: a situation where the direction of an observed association completely reverses once we account for a confounder. This paradox underscores that naive data analysis can lead to exactly wrong conclusions, and it motivates the formal tools we will develop later.</p>
+
                 <div class="env-block intuition">
                     <div class="env-title">Intuition</div>
                     <div class="env-body">
@@ -504,6 +514,8 @@ window.CHAPTERS.push({
             title: 'Counterfactual Thinking',
             content: `
                 <h2>Counterfactual Thinking</h2>
+
+                <p class="section-bridge">Having seen through Simpson's Paradox that observed associations can be deeply misleading, we now ask: what does it even mean for one thing to cause another? The answer lies in counterfactual reasoning, comparing what actually happened with what <em>would have</em> happened under a different scenario. This section formalizes the intuitive "what if" questions that underpin all causal claims and introduces the notation of potential outcomes that will be developed fully in Chapter 1.</p>
 
                 <div class="env-block intuition">
                     <div class="env-title">Intuition</div>
@@ -762,6 +774,8 @@ window.CHAPTERS.push({
             title: 'The Fundamental Problem of Causal Inference',
             content: `
                 <h2>The Fundamental Problem of Causal Inference</h2>
+
+                <p class="section-bridge">The previous section defined causal effects as differences between potential outcomes. But there is a catch: for any individual, we can only ever observe <em>one</em> of the two potential outcomes. This "missing data" problem is the heart of the challenge. In this section, we formalize this limitation and introduce the key assumptions (such as SUTVA) that make progress possible despite the impossibility of observing individual causal effects.</p>
 
                 <div class="env-block intuition">
                     <div class="env-title">Intuition</div>
@@ -1061,6 +1075,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Overview of Causal Inference Methods</h2>
 
+                <p class="section-bridge">We have now established the conceptual foundations: correlation is not causation, causal effects are defined through counterfactuals, and the fundamental problem prevents us from observing individual effects directly. The natural question becomes: how do we actually estimate causal effects in practice? This final section provides a bird's-eye view of the methods we will develop over the remaining chapters, organized by the type of identifying variation each method exploits. Think of this as a roadmap for the entire course.</p>
+
                 <div class="env-block intuition">
                     <div class="env-title">Intuition</div>
                     <div class="env-body">
@@ -1147,6 +1163,13 @@ window.CHAPTERS.push({
                 </div>
 
                 <p>This chapter has introduced the fundamental questions and concepts of causal inference. In the next chapter, we will formally develop the <strong>Potential Outcomes Framework</strong>, the mathematical foundation for defining and estimating causal effects.</p>
+
+                <div class="env-block roadmap">
+                    <div class="env-title">Looking Ahead</div>
+                    <div class="env-body">
+                        <p>With the conceptual groundwork laid, we are ready to build formal mathematical machinery. Chapter 1 introduces the <strong>Potential Outcomes Framework</strong> (the Rubin Causal Model), which gives us precise notation for treatment effects, formalizes the missing data problem, and establishes the assumptions under which causal effects become estimable. This framework will serve as the lingua franca for the rest of the course.</p>
+                    </div>
+                </div>
             `,
             visualizations: [],
             exercises: [

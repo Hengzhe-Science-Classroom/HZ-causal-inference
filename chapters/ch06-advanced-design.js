@@ -15,6 +15,14 @@ window.CHAPTERS.push({
             content: `
 <h2>Factorial Designs</h2>
 
+<div class="env-block roadmap">
+<div class="env-title">Chapter Opening</div>
+<div class="env-body">
+<p>Chapter 5 covered the workhorse RCT, randomizing a single binary treatment. But many research questions involve multiple treatments, time-varying exposures, or ethical constraints that prevent forced assignment. This chapter explores advanced experimental designs that go beyond simple randomization to answer richer questions and use resources more efficiently.</p>
+<p><strong>What lies ahead in this chapter:</strong> We begin with factorial designs that study multiple treatments simultaneously (Section 1), then cover crossover and within-subject designs (Section 2), adaptive and sequential experiments (Section 3), encouragement designs for settings where compliance cannot be enforced (Section 4), and regression adjustment methods that improve precision in experiments (Section 5).</p>
+</div>
+</div>
+
 <h3>Why Factorial?</h3>
 <p>In a simple RCT we randomize one treatment factor at a time. But many scientific questions involve
 <strong>multiple factors</strong>. A <em>factorial design</em> studies all combinations simultaneously,
@@ -273,6 +281,8 @@ sacrificing statistical power for any single factor. They are not just efficient
             title: 'Crossover & Within-Subject Designs',
             content: `
 <h2>Crossover & Within-Subject Designs</h2>
+
+<p class="section-bridge">Factorial designs multiply the number of treatment cells but still assign each unit to a single cell. An alternative approach lets each unit experience <em>multiple</em> treatments over time, serving as their own control. This dramatically increases power by eliminating between-subject variability, but introduces new complications like carryover effects. This section develops the theory and practice of crossover designs.</p>
 
 <h3>Motivation</h3>
 <p>In a <strong>between-subjects</strong> design, each unit receives only one treatment. But individual-level
@@ -575,6 +585,8 @@ for conditions that change (e.g., acute illness).
             title: 'Adaptive & Sequential Experiments',
             content: `
 <h2>Adaptive & Sequential Experiments</h2>
+
+<p class="section-bridge">The designs covered so far fix the experimental protocol before data collection begins. But what if we could learn from the data <em>during</em> the experiment and adapt accordingly? Adaptive and sequential designs allow mid-course adjustments, such as stopping early for efficacy or reallocating subjects toward more promising treatments. These methods are especially important in clinical trials and A/B testing, where efficiency and ethics both favor adaptive approaches.</p>
 
 <h3>The Problem with Fixed Designs</h3>
 <p>Classical RCTs fix the sample size, allocation ratio, and decision rules before the trial begins.
@@ -911,6 +923,8 @@ pre-specification to maintain Type I error control.
             content: `
 <h2>Encouragement Designs</h2>
 
+<p class="section-bridge">All the previous designs assume we can directly assign treatments. But sometimes ethical or practical constraints prevent this: we cannot force people to exercise, take medication, or attend training. In such settings, we randomize <em>encouragement</em> rather than treatment itself. The randomized encouragement serves as an instrumental variable, allowing identification of causal effects for the compliant subpopulation. This design creates a natural bridge to the instrumental variables methods we will study in depth in Chapters 11-12.</p>
+
 <h3>When Forced Treatment is Unethical</h3>
 <p>Sometimes we cannot ethically or practically <em>force</em> subjects to take a treatment.
 For example, we cannot force people to exercise, attend job training, or take a medication
@@ -1245,6 +1259,8 @@ encouragement." These are different quantities answering different questions.
             content: `
 <h2>Regression Adjustment in Experiments</h2>
 
+<p class="section-bridge">So far we have focused on the <em>design</em> of experiments. But how we <em>analyze</em> the data also matters enormously. Even in a perfectly randomized trial, incorporating pre-treatment covariates into the analysis can substantially reduce variance and tighten confidence intervals. This section shows how regression adjustment works in experiments and why it is safe to use despite concerns about "adjusting for things in observational studies" that we will revisit in Chapter 8.</p>
+
 <h3>The Promise of Covariate Adjustment</h3>
 <p>Even in a perfectly randomized experiment, baseline covariates \\(X_i\\) can explain variation
 in outcomes. Using them in the analysis can <strong>reduce variance</strong> and tighten confidence
@@ -1321,6 +1337,13 @@ precision: you can only gain (not lose) efficiency asymptotically by adjusting f
 covariates. Lin's fully interacted estimator resolves Freedman's concerns while preserving the
 variance reduction benefits of ANCOVA. The key is to use robust standard errors and pre-specify
 covariates.
+</div>
+
+<div class="env-block roadmap">
+<div class="env-title">Looking Ahead</div>
+<div class="env-body">
+<p>We have now covered a rich toolkit of experimental designs. But before running any experiment, a crucial question must be answered: <em>how many subjects do we need?</em> Chapter 7 develops statistical power analysis and the A/B testing framework, providing the quantitative tools for determining sample sizes, handling multiple comparisons, and avoiding common pitfalls in online experiments.</p>
+</div>
 </div>
 `,
             visualizations: [

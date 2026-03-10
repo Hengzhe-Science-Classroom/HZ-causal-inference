@@ -10,6 +10,14 @@ window.CHAPTERS.push({
             id: 'ch05-sec01',
             title: 'Why Randomization Works',
             content: `<h2>Why Randomization Works</h2>
+
+<div class="env-block roadmap">
+<div class="env-title">Chapter Opening</div>
+<div class="env-body">
+<p>Chapters 0-4 built the theoretical foundations for causal inference: potential outcomes, DAGs, d-separation, and the do-calculus. We learned <em>when</em> causal effects are identifiable. Now we turn to the most direct solution to the identification problem: the <strong>Randomized Controlled Trial (RCT)</strong>. Randomization eliminates confounding by design, making the observational distribution equal to the interventional distribution. This chapter explains why randomization works and covers the main experimental designs used in practice.</p>
+<p><strong>What lies ahead in this chapter:</strong> We begin with the fundamental logic of randomization (Section 1), then cover complete and simple random assignment (Section 2), stratified and cluster randomization (Section 3), inference methods for RCTs (Section 4), and practical challenges including non-compliance and attrition (Section 5).</p>
+</div>
+</div>
 <p>Randomized controlled trials (RCTs) are called the "gold standard" of causal inference because randomization solves the fundamental problem: it makes treatment assignment independent of potential outcomes.</p>
 
 <div class="env-block definition"><div class="env-title">Definition (Random Assignment)</div><div class="env-body">
@@ -273,6 +281,9 @@ window.CHAPTERS.push({
             id: 'ch05-sec02',
             title: 'Complete & Simple Random Assignment',
             content: `<h2>Complete & Simple Random Assignment</h2>
+
+<p class="section-bridge">Now that we understand <em>why</em> randomization eliminates confounding, we turn to <em>how</em> it is implemented. Not all randomization schemes are equivalent: the choice between Bernoulli and complete randomization affects the number of treated units, the variance of estimators, and the exact inference procedures available. This section lays out the two most fundamental designs.</p>
+
 <p>There are several ways to implement randomization. The two most fundamental are <strong>Bernoulli (simple) randomization</strong> and <strong>complete randomization</strong>.</p>
 
 <div class="env-block definition"><div class="env-title">Definition (Bernoulli/Simple Randomization)</div><div class="env-body">
@@ -545,6 +556,9 @@ window.CHAPTERS.push({
             id: 'ch05-sec03',
             title: 'Stratified & Cluster Randomization',
             content: `<h2>Stratified & Cluster Randomization</h2>
+
+<p class="section-bridge">Simple and complete randomization treat all units identically. But in practice, we often have baseline information that can improve our design. By randomizing <em>within</em> subgroups defined by covariates, we can guarantee balance and reduce variance. Meanwhile, when individual-level randomization is impractical (e.g., treating entire schools or villages), cluster randomization provides an alternative. This section covers both approaches.</p>
+
 <p>Complete randomization can be improved by incorporating information about covariates at the design stage. <strong>Stratified (block) randomization</strong> ensures covariate balance by design, while <strong>cluster randomization</strong> handles practical constraints when individual randomization is infeasible.</p>
 
 <h3>Stratified (Block) Randomization</h3>
@@ -827,6 +841,9 @@ window.CHAPTERS.push({
             id: 'ch05-sec04',
             title: 'Inference for RCTs',
             content: `<h2>Inference for RCTs</h2>
+
+<p class="section-bridge">We now know how to design randomized experiments. But after data collection, how do we actually analyze the results? The choice of inferential framework matters: Fisher's approach focuses on hypothesis testing under sharp nulls, while Neyman's approach targets confidence intervals for the ATE. This section develops both and shows how regression adjustment can tighten our conclusions.</p>
+
 <p>There are two major inferential frameworks for analyzing RCTs: <strong>Fisher's exact approach</strong> (testing sharp nulls) and <strong>Neyman's repeated sampling approach</strong> (estimating the ATE with confidence intervals). Modern practice often uses <strong>regression adjustment</strong> to improve precision.</p>
 
 <h3>Neyman's Repeated Sampling Approach</h3>
@@ -1128,6 +1145,9 @@ window.CHAPTERS.push({
             id: 'ch05-sec05',
             title: 'Practical Challenges',
             content: `<h2>Practical Challenges in RCTs</h2>
+
+<p class="section-bridge">The previous sections presented RCTs under ideal conditions. In reality, experiments rarely go perfectly: participants may not comply with their treatment assignments, subjects drop out, and the experimental setting may not generalize to the real world. This section confronts these complications head-on and introduces the intention-to-treat principle and CACE framework that address non-compliance, a theme revisited through the lens of instrumental variables in Chapter 11.</p>
+
 <p>Real-world RCTs face many practical complications that can undermine the clean theoretical results. Understanding these challenges is essential for both designing and interpreting experiments.</p>
 
 <h3>Non-Compliance</h3>
@@ -1178,7 +1198,14 @@ window.CHAPTERS.push({
 <li>General equilibrium effects emerge at scale but not in small trials</li>
 </ul>
 
-<div class="viz-placeholder" data-viz="ch05-viz-itt-cace"></div>`,
+<div class="viz-placeholder" data-viz="ch05-viz-itt-cace"></div>
+
+<div class="env-block roadmap">
+<div class="env-title">Looking Ahead</div>
+<div class="env-body">
+<p>This chapter covered the fundamentals of RCTs. Chapter 6 extends these ideas to more sophisticated experimental designs, including factorial experiments, crossover designs, adaptive trials, and encouragement designs. These advanced techniques allow researchers to answer richer questions and use resources more efficiently.</p>
+</div>
+</div>`,
             visualizations: [
                 {
                     id: 'ch05-viz-itt-cace',

@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Motivation for Double Robustness</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Opening</div>
+                    <div class="env-body">
+                        <p>Chapter 8 introduced outcome regression and matching; Chapter 9 developed propensity score methods. Each relies on correctly specifying a single model: the outcome model for regression, the propensity score model for IPW. But what if we could hedge our bets, constructing an estimator that is consistent if <em>either</em> model is correct? This is the idea of <strong>double robustness</strong>, and it represents a major advance in the practice of causal inference.</p>
+                        <p><strong>What lies ahead in this chapter:</strong> We motivate the double robustness idea (Section 1), develop the AIPW estimator (Section 2), establish its semiparametric efficiency (Section 3), introduce TMLE as an alternative doubly robust method (Section 4), and cover practical implementation with cross-fitting and machine learning (Section 5).</p>
+                    </div>
+                </div>
+
                 <p>In the preceding chapters, we studied two fundamental approaches to causal inference under unconfoundedness. <strong>Outcome regression</strong> (OR) models the conditional mean \\(\\mu_w(x) = \\mathbb{E}[Y \\mid X = x, W = w]\\) and imputes missing potential outcomes. <strong>Inverse probability weighting</strong> (IPW) models the propensity score \\(e(x) = \\mathbb{P}(W = 1 \\mid X = x)\\) and reweights observed outcomes to create pseudo-populations. Each approach relies critically on the correct specification of its respective model.</p>
 
                 <div class="env-block warning">
@@ -302,6 +310,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Augmented Inverse Probability Weighting (AIPW) Estimator</h2>
 
+                <p class="section-bridge">The previous section showed that both outcome regression and IPW are fragile in isolation. Now we construct an estimator that combines both models: the AIPW estimator augments the regression imputation with an IPW-based correction term. The mathematical structure is elegant, and the result is an estimator with a remarkable insurance property against misspecification.</p>
+
                 <p>The most widely used doubly robust estimator is the <strong>augmented inverse probability weighting</strong> (AIPW) estimator, also known as the doubly robust estimator. It combines outcome regression with IPW by augmenting the regression imputation with an IPW-based bias correction term.</p>
 
                 <div class="env-block definition">
@@ -560,6 +570,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Semiparametric Efficiency</h2>
 
+                <p class="section-bridge">Beyond double robustness, the AIPW estimator has another remarkable property: it achieves the <em>smallest possible variance</em> among all regular estimators, even without fully parametric assumptions. This section develops the semiparametric efficiency bound and shows that AIPW attains it, providing a deep theoretical justification for its use in practice.</p>
+
                 <p>A central result in causal inference is that the AIPW estimator is not just doubly robust &mdash; it is also <strong>semiparametrically efficient</strong>. This means it achieves the smallest possible asymptotic variance among all regular estimators of the ATE, without requiring a fully parametric model for the data-generating process.</p>
 
                 <h3>The Semiparametric Model</h3>
@@ -788,6 +800,8 @@ window.CHAPTERS.push({
             title: 'Targeted Maximum Likelihood Estimation (TMLE)',
             content: `
                 <h2>Targeted Maximum Likelihood Estimation (TMLE)</h2>
+
+                <p class="section-bridge">AIPW achieves double robustness and efficiency through an additive correction. But there is an alternative path: instead of correcting the outcome model after the fact, we can <em>target</em> it from the start toward the causal parameter of interest. TMLE does exactly this, producing estimates that are doubly robust, efficient, and guaranteed to respect natural constraints (such as probabilities remaining between 0 and 1).</p>
 
                 <p>While AIPW achieves semiparametric efficiency by adding a bias correction to the outcome regression, an alternative approach is to <strong>target</strong> the initial outcome model directly toward the parameter of interest. This is the idea behind <strong>Targeted Maximum Likelihood Estimation</strong> (TMLE), developed by Mark van der Laan and colleagues.</p>
 
@@ -1114,6 +1128,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Practical Implementation</h2>
 
+                <p class="section-bridge">The AIPW and TMLE estimators are theoretically attractive, but their practical success hinges on careful implementation. When we use flexible machine learning methods to estimate nuisance functions, we must guard against overfitting through cross-fitting (sample splitting). This section covers the nuts and bolts of implementation, including the DML (Debiased Machine Learning) framework of Chernozhukov et al. (2018), which provides a principled way to combine machine learning with causal inference.</p>
+
                 <p>The theoretical elegance of doubly robust estimation translates into practical benefits only when implemented carefully. This section covers the key practical considerations: cross-fitting, debiased machine learning (DML), choosing ML methods for nuisance parameters, and diagnostics.</p>
 
                 <h3>Cross-Fitting and Sample Splitting</h3>
@@ -1214,6 +1230,13 @@ window.CHAPTERS.push({
                             <li><strong>Diagnostics:</strong> Check propensity score distributions (good overlap between 0.1 and 0.9), covariate balance after weighting (all standardized differences below 0.1), and cross-validated \\(R^2 = 0.72\\) for outcomes.</li>
                             <li><strong>Result:</strong> \\(\\hat{\\tau}_{\\text{DML}} = \\$2{,}340\\) with 95% CI \\([\\$1{,}180, \\$3{,}500]\\).</li>
                         </ol>
+                    </div>
+                </div>
+
+                <div class="env-block roadmap">
+                    <div class="env-title">Looking Ahead</div>
+                    <div class="env-body">
+                        <p>Chapters 8-10 developed a complete toolkit for causal inference under <em>selection on observables</em>: the assumption that all confounders are measured. But what if important confounders are unmeasured? The next arc of the course (Chapters 11-17) develops <strong>quasi-experimental methods</strong> that exploit different sources of exogenous variation: instrumental variables, regression discontinuities, fixed effects, difference-in-differences, and synthetic controls. Chapter 11 begins with <strong>Instrumental Variables</strong>, which use an exogenous source of variation to identify causal effects even in the presence of unmeasured confounding.</p>
                     </div>
                 </div>
             `,

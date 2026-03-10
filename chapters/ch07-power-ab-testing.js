@@ -10,6 +10,15 @@ window.CHAPTERS.push({
             id: 'ch07-sec01',
             title: 'Power Analysis Fundamentals',
             content: `<h2>Power Analysis Fundamentals</h2>
+
+<div class="env-block roadmap">
+<div class="env-title">Chapter Opening</div>
+<div class="env-body">
+<p>Chapters 5 and 6 developed a rich toolkit of experimental designs. But a well-designed experiment is useless if the sample is too small to detect a meaningful effect. This chapter addresses the question every experimenter must answer before collecting data: <em>how many subjects do I need?</em> We develop power analysis, the A/B testing framework used widely in industry, and the corrections needed when testing multiple hypotheses or peeking at data.</p>
+<p><strong>What lies ahead in this chapter:</strong> We start with the fundamentals of Type I/II errors and power (Section 1), derive sample size formulas (Section 2), introduce the A/B testing framework (Section 3), address multiple testing and sequential analysis (Section 4), and close with common pitfalls that trip up practitioners (Section 5).</p>
+</div>
+</div>
+
 <p>When we design an experiment, we must ask: if the treatment truly has an effect, how likely is our experiment to <strong>detect</strong> it? This question is answered by <strong>statistical power</strong>.</p>
 
 <div class="env-block definition"><div class="env-title">Definition (Type I and Type II Errors)</div><div class="env-body">
@@ -278,6 +287,9 @@ window.CHAPTERS.push({
             id: 'ch07-sec02',
             title: 'Sample Size Determination',
             content: `<h2>Sample Size Determination</h2>
+
+<p class="section-bridge">The previous section defined power and showed how it depends on sample size, effect size, and significance level. Now we invert this relationship: given a target power and a minimum detectable effect, how large must the sample be? This is the most practical output of power analysis and the calculation that must precede every experiment.</p>
+
 <p>The most common use of power analysis is <strong>prospective sample size calculation</strong>: before running an experiment, how many subjects do we need?</p>
 
 <div class="env-block theorem"><div class="env-title">Theorem (Sample Size Formula for Two-Sample Test)</div><div class="env-body">
@@ -502,6 +514,9 @@ window.CHAPTERS.push({
             id: 'ch07-sec03',
             title: 'A/B Testing Framework',
             content: `<h2>A/B Testing Framework</h2>
+
+<p class="section-bridge">With power analysis and sample size determination in hand, we now turn to the most widely deployed form of experimentation in practice: A/B testing. Every major technology company runs thousands of A/B tests annually, making this the largest-scale application of causal inference in the world. While the statistical foundations are identical to RCTs, the digital setting introduces unique features and challenges.</p>
+
 <p>A/B testing is the technology industry's implementation of randomized controlled trials, applied to digital products at massive scale. While the statistical foundations are the same, the practice introduces unique challenges and considerations.</p>
 
 <div class="env-block definition"><div class="env-title">Definition (A/B Test)</div><div class="env-body">
@@ -812,6 +827,9 @@ window.CHAPTERS.push({
             id: 'ch07-sec04',
             title: 'Multiple Testing & Sequential Analysis',
             content: `<h2>Multiple Testing & Sequential Analysis</h2>
+
+<p class="section-bridge">In practice, experiments rarely test a single hypothesis in isolation. A company might run dozens of A/B tests simultaneously, each examining multiple metrics. Moreover, teams often want to check results before the experiment is "done." Both of these practices, testing many hypotheses and peeking at accumulating data, inflate false positive rates unless we apply appropriate corrections. This section develops the tools for maintaining valid inference in these settings.</p>
+
 <p>Real A/B testing platforms run many tests simultaneously and often check results continuously. Both practices inflate false positive rates unless properly corrected.</p>
 
 <div class="env-block definition"><div class="env-title">Definition (Family-Wise Error Rate)</div><div class="env-body">
@@ -1133,6 +1151,9 @@ window.CHAPTERS.push({
             id: 'ch07-sec05',
             title: 'Practical A/B Testing Pitfalls',
             content: `<h2>Practical A/B Testing Pitfalls</h2>
+
+<p class="section-bridge">Even with correct power calculations and multiple testing corrections, A/B tests can go wrong in subtle ways. This final section catalogs the most common practical pitfalls, from the peeking problem to interference between users, network effects, and novelty effects. Awareness of these issues separates rigorous experimentation from misleading results.</p>
+
 <p>Even with solid statistical foundations, many A/B tests fail due to practical issues. Understanding these pitfalls is essential for trustworthy experimentation.</p>
 
 <div class="env-block definition"><div class="env-title">Definition (Peeking Problem)</div><div class="env-body">
@@ -1168,7 +1189,14 @@ window.CHAPTERS.push({
 <p>where \\(\\rho_{XY}\\) is the correlation between \\(X\\) and \\(Y\\). With \\(\\rho = 0.5\\), variance is reduced by 25%; with \\(\\rho = 0.8\\), by 64%. This is equivalent to increasing sample size by the same factor at zero marginal cost.</p>
 </div></div>
 
-<div class="viz-placeholder" data-viz="ch07-viz-peeking"></div>`,
+<div class="viz-placeholder" data-viz="ch07-viz-peeking"></div>
+
+<div class="env-block roadmap">
+<div class="env-title">Looking Ahead</div>
+<div class="env-body">
+<p>With the experiments arc complete (Chapters 5-7), we now face a harder challenge: what happens when randomization is not possible? The next three chapters (8-10) develop methods for <strong>observational studies</strong> where treatment assignment depends on observed covariates. Chapter 8 introduces selection bias and confounding, Chapter 9 develops propensity score methods, and Chapter 10 introduces the doubly robust estimators that combine the best of both worlds.</p>
+</div>
+</div>`,
             visualizations: [
                 {
                     id: 'ch07-viz-peeking',

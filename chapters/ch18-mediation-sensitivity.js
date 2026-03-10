@@ -13,6 +13,15 @@ window.CHAPTERS.push({
             id: 'ch18-sec01',
             title: 'Direct & Indirect Effects',
             content: `<h2>1 Direct & Indirect Effects</h2>
+
+<div class="env-block roadmap">
+<div class="env-title">Chapter Opening</div>
+<div class="env-body">
+<p>Throughout Chapters 5-17, we focused on estimating the <em>total</em> causal effect of a treatment on an outcome. Two important questions remain. First, <em>through what mechanism</em> does the treatment work? Mediation analysis decomposes the total effect into direct and indirect pathways. Second, <em>how robust</em> are our causal conclusions to potential violations of the identifying assumptions? Sensitivity analysis quantifies the fragility of our findings. This chapter addresses both questions.</p>
+<p><strong>What lies ahead in this chapter:</strong> We define direct and indirect effects using potential outcomes (Section 1), develop the modern causal mediation framework (Section 2), introduce sensitivity analysis for unmeasured confounding (Section 3), derive Rosenbaum bounds for matched studies (Section 4), and present E-values and other modern sensitivity tools (Section 5).</p>
+</div>
+</div>
+
 <p>When we find that a treatment \\(X\\) affects an outcome \\(Y\\), a natural follow-up question is <strong>why</strong> and <strong>through what mechanism</strong>. Mediation analysis decomposes the total effect into a <strong>direct effect</strong> (the pathway \\(X \\to Y\\)) and an <strong>indirect effect</strong> (the pathway \\(X \\to M \\to Y\\) through a mediator \\(M\\)).</p>
 
 <div class="env-block definition">
@@ -265,6 +274,9 @@ window.CHAPTERS.push({
             id: 'ch18-sec02',
             title: 'Causal Mediation Analysis',
             content: `<h2>2 Causal Mediation Analysis</h2>
+
+<p class="section-bridge">Section 1 defined the natural direct and indirect effects conceptually. Now we turn to identification and estimation. The key challenge is that the natural indirect effect involves a "cross-world" counterfactual: what would the mediator be under control, and what would the outcome be if we set treatment to 1 but the mediator to its control value? This requires stronger assumptions than standard causal identification. The Imai-Keele-Tingley framework makes these assumptions explicit and provides practical estimation tools.</p>
+
 <p>Modern causal mediation analysis, developed by Imai, Keele, and Tingley (2010), provides a rigorous framework for identifying and estimating mediation effects under clearly stated assumptions.</p>
 
 <div class="env-block definition">
@@ -531,6 +543,9 @@ window.CHAPTERS.push({
             id: 'ch18-sec03',
             title: 'Sensitivity Analysis for Unobserved Confounding',
             content: `<h2>3 Sensitivity Analysis for Unobserved Confounding</h2>
+
+<p class="section-bridge">We now shift from mediation to a topic that applies to <em>every</em> observational study in this course. The assumption of no unmeasured confounding is untestable. Sensitivity analysis does not test this assumption but instead asks: how much unmeasured confounding would be needed to change our qualitative conclusions? If only a very strong confounder could explain away the result, we gain confidence in the finding. If a weak confounder suffices, the finding is fragile. This section develops the classical approaches to this question.</p>
+
 <p>Every observational causal inference rests on the assumption of <strong>no unobserved confounding</strong>. Since this assumption is untestable, we need tools to assess how robust our conclusions are to potential violations. Sensitivity analysis asks: <em>"How strong would unobserved confounding need to be to change our conclusion?"</em></p>
 
 <div class="env-block definition">
@@ -875,6 +890,9 @@ window.CHAPTERS.push({
             id: 'ch18-sec04',
             title: 'Rosenbaum Bounds',
             content: `<h2>4 Rosenbaum Bounds</h2>
+
+<p class="section-bridge">Section 3 introduced sensitivity analysis conceptually. Rosenbaum bounds operationalize this idea for matched observational studies, providing a rigorous framework that has been widely adopted in practice. The parameter \\(\\Gamma\\) quantifies the degree of departure from random assignment within matched pairs, and the analysis reports the largest \\(\\Gamma\\) at which the causal conclusion survives. This connects directly to the propensity score matching methods from Chapter 9.</p>
+
 <p>Rosenbaum bounds provide a systematic way to assess the sensitivity of matched-pair causal inference to hidden bias. We derive worst-case bounds on the test statistic and treatment effect under increasing levels of unobserved confounding.</p>
 
 <div class="env-block definition">
@@ -1243,6 +1261,9 @@ window.CHAPTERS.push({
             id: 'ch18-sec05',
             title: 'E-values & Modern Sensitivity Tools',
             content: `<h2>5 E-values & Modern Sensitivity Tools</h2>
+
+<p class="section-bridge">Rosenbaum bounds are powerful but designed for matched studies. Modern sensitivity tools extend the idea to a broader class of designs. The E-value (VanderWeele and Ding, 2017) provides a single, interpretable number summarizing robustness, and the omitted variable bias framework of Cinelli and Hazlett (2020) allows researchers to calibrate the strength of hypothetical confounders against observed covariates. These tools are becoming standard practice in applied research.</p>
+
 <p>Recent developments have produced powerful, easy-to-use sensitivity measures that complement the Rosenbaum framework. The <strong>E-value</strong> and the <strong>omitted variable bias (OVB) framework</strong> provide intuitive summaries of robustness.</p>
 
 <div class="env-block definition">
@@ -1293,6 +1314,13 @@ window.CHAPTERS.push({
 <div class="env-block intuition">
 <div class="env-title">Intuition</div>
 <div class="env-body"><p>The E-value asks: "How much would reality have to differ from our model for our finding to be wrong?" It provides a single number that summarizes robustness. The OVB framework goes further by calibrating against observed covariates — not just "how strong must the confounder be?" but "how strong relative to confounders we already account for?"</p></div>
+</div>
+
+<div class="env-block roadmap">
+<div class="env-title">Looking Ahead</div>
+<div class="env-body">
+<p>This chapter asked <em>through what mechanism</em> a treatment works and <em>how robust</em> our conclusions are. The final chapter asks a different kind of question: <em>for whom</em> does the treatment work best? Chapter 19 develops methods for discovering <strong>heterogeneous treatment effects</strong>, from conditional average treatment effects (CATEs) to causal forests, meta-learners, and optimal treatment rules. These machine learning-driven methods represent the frontier of causal inference.</p>
+</div>
 </div>`,
             visualizations: [
                 {

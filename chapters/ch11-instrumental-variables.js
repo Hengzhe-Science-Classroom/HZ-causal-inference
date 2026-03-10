@@ -17,6 +17,14 @@ window.CHAPTERS.push({
             title: 'Endogeneity & the IV Idea',
             content: `<h2>Endogeneity & the IV Idea</h2>
 
+<div class="env-block roadmap">
+<div class="env-title">Chapter Opening</div>
+<div class="env-body">
+<p>Chapters 8-10 developed methods for causal inference under <em>selection on observables</em>, requiring that all confounders are measured. But in many settings, important confounders are unmeasured, making those methods inapplicable. This chapter introduces <strong>Instrumental Variables (IV)</strong>, the first of several quasi-experimental methods that can handle unmeasured confounding by exploiting an exogenous source of variation in treatment.</p>
+<p><strong>What lies ahead in this chapter:</strong> We start with the endogeneity problem and the IV idea (Section 1), develop the 2SLS estimator (Section 2), examine the three core IV assumptions in depth (Section 3), interpret what IV actually estimates through the LATE framework (Section 4), and close with classic applications that illustrate the method's power and pitfalls (Section 5).</p>
+</div>
+</div>
+
 <p>Throughout the previous chapters we assumed that, after conditioning on observables, treatment assignment was as good as random. But what happens when an <strong>unobserved confounder</strong> \\(U\\) affects both the treatment \\(X\\) and the outcome \\(Y\\)? In that case, OLS is <strong>biased and inconsistent</strong> &mdash; no matter how large the sample.</p>
 
 <div class="env-block definition">
@@ -249,6 +257,8 @@ window.CHAPTERS.push({
             id: 'ch11-sec02',
             title: 'Two-Stage Least Squares',
             content: `<h2>Two-Stage Least Squares (2SLS)</h2>
+
+<p class="section-bridge">Section 1 introduced the conceptual idea: use an exogenous instrument to isolate variation in treatment that is free from confounding. Now we turn this idea into a concrete estimation procedure. Two-Stage Least Squares provides a simple, mechanical recipe: first regress treatment on the instrument, then regress outcomes on the predicted treatment values. This two-step procedure has a clean algebraic structure and connects directly to the Wald estimator.</p>
 
 <p>The IV idea can be operationalized through a simple two-step procedure called <strong>Two-Stage Least Squares</strong> (2SLS). The name tells you exactly what it does.</p>
 
@@ -530,6 +540,8 @@ window.CHAPTERS.push({
             id: 'ch11-sec03',
             title: 'IV Assumptions',
             content: `<h2>IV Assumptions in Depth</h2>
+
+<p class="section-bridge">The 2SLS estimator is straightforward to compute, but its validity depends entirely on the underlying assumptions. This section examines each assumption, relevance, independence, and the exclusion restriction, in careful detail. Understanding when these assumptions hold (and when they might fail) is the most important practical skill for applied IV work. We discuss testable implications and warning signs of assumption violations.</p>
 
 <p>The validity of IV estimation rests on three core assumptions. Violating any one of them can invalidate the entire analysis. Let us examine each assumption carefully, understand what can go wrong, and discuss how to assess their plausibility.</p>
 
@@ -820,6 +832,8 @@ window.CHAPTERS.push({
             title: 'Local Average Treatment Effect',
             content: `<h2>Local Average Treatment Effect (LATE)</h2>
 
+<p class="section-bridge">With the assumptions established, we confront a subtle but crucial question: in a world of heterogeneous treatment effects, whose effect does IV estimate? The answer, given by the Imbens-Angrist LATE theorem, is that IV identifies the average effect for <em>compliers</em>, the subpopulation whose treatment status is actually changed by the instrument. This insight has profound implications for interpreting IV results and for understanding why different instruments may yield different estimates.</p>
+
 <p>When treatment effects are <strong>heterogeneous</strong> &mdash; different people respond differently to treatment &mdash; what exactly does IV estimate? The answer, given by the landmark <strong>Imbens and Angrist (1994)</strong> theorem, is the <strong>Local Average Treatment Effect</strong> (LATE): the average causal effect for a specific subpopulation.</p>
 
 <h3>Compliance Strata</h3>
@@ -1076,6 +1090,8 @@ window.CHAPTERS.push({
             title: 'Classic IV Applications',
             content: `<h2>Classic IV Applications</h2>
 
+<p class="section-bridge">Theory comes alive through examples. This section examines landmark IV studies that showcase the method's creativity and challenges. From the Vietnam draft lottery to quarter-of-birth instruments, these applications illustrate how researchers find exogenous variation in observational data, and what can go wrong when assumptions are only approximately satisfied.</p>
+
 <p>The history of instrumental variables is rich with creative applications that have shaped our understanding of causal relationships. Here we examine four landmark studies that illustrate the power &mdash; and the challenges &mdash; of IV methods.</p>
 
 <h3>1. Vietnam Draft Lottery &mdash; Angrist (1990)</h3>
@@ -1148,6 +1164,13 @@ window.CHAPTERS.push({
 <li><strong>LATE depends on the instrument.</strong> Different instruments identify effects for different complier populations.</li>
 <li><strong>Weak instruments are dangerous.</strong> The quarter-of-birth debate shows that weak first stages can undermine even creative IV designs.</li>
 </ol>
+</div>
+</div>
+
+<div class="env-block roadmap">
+<div class="env-title">Looking Ahead</div>
+<div class="env-body">
+<p>This chapter presented the ideal case of IV with a strong, valid instrument. But in practice, instruments can be <em>weak</em> (barely correlated with treatment), and researchers sometimes use <em>many</em> instruments simultaneously. Chapter 12 examines these complications: the weak instrument problem, testing for instrument strength, Anderson-Rubin confidence sets that remain valid with weak instruments, and modern approaches to many-IV settings including the shift-share (Bartik) design.</p>
 </div>
 </div>`,
             visualizations: [

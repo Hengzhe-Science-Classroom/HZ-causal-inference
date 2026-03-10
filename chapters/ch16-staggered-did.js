@@ -17,6 +17,14 @@ window.CHAPTERS.push({
             title: 'Problems with TWFE Under Staggered Treatment',
             content: `<h2>Problems with TWFE Under Staggered Treatment</h2>
 
+<div class="env-block roadmap">
+<div class="env-title">Chapter Opening</div>
+<div class="env-body">
+<p>Chapter 15 developed DiD for the clean 2x2 case where all treated units adopt treatment at the same time. In reality, most policy evaluations involve <strong>staggered treatment adoption</strong>: different units adopt at different times. Applied researchers routinely use two-way fixed effects (TWFE) regression in these settings, but recent research has revealed a startling problem: TWFE can produce severely biased estimates, even yielding the wrong sign, when treatment effects vary over time or across groups.</p>
+<p><strong>What lies ahead in this chapter:</strong> We diagnose the problems with TWFE under staggered treatment (Section 1), decompose the TWFE estimator using Goodman-Bacon's result (Section 2), develop the Callaway-Sant'Anna estimator as a solution (Section 3), cover alternative approaches by Sun-Abraham and de Chaisemartin-D'Haultfoeuille (Section 4), and present the event study design for dynamic treatment effects (Section 5).</p>
+</div>
+</div>
+
 <p>In many real-world policy evaluations, treatment does not arrive simultaneously for all treated units. States adopt minimum wage increases in different years; hospitals implement new protocols at different times; firms adopt technologies on their own schedules. This setting is called <strong>staggered treatment adoption</strong>.</p>
 
 <div class="env-block definition">
@@ -361,6 +369,8 @@ window.CHAPTERS.push({
             title: 'Goodman-Bacon Decomposition',
             content: `<h2>Goodman-Bacon Decomposition</h2>
 
+<p class="section-bridge">Section 1 demonstrated that TWFE can go wrong under staggered treatment, but <em>why</em> does this happen? Goodman-Bacon's decomposition provides the answer: TWFE is a weighted average of <em>all possible</em> 2x2 DiD comparisons, and some of these comparisons use already-treated units as controls, introducing contamination from dynamic treatment effects. Understanding this decomposition is essential for diagnosing problems in applied work.</p>
+
 <p>Andrew Goodman-Bacon (2021) provided a fundamental insight: the TWFE DiD estimator in a staggered setting can be exactly decomposed into a weighted average of <strong>all possible 2\\(\\times\\)2 DiD estimators</strong> formed from pairs of timing groups.</p>
 
 <div class="env-block theorem">
@@ -698,6 +708,8 @@ window.CHAPTERS.push({
             title: "Callaway-Sant'Anna Estimator",
             content: `<h2>Callaway-Sant'Anna Estimator</h2>
 
+<p class="section-bridge">The Bacon decomposition diagnosed the problem; now we need a solution. Callaway and Sant'Anna (2021) proposed an estimator that avoids the contamination issue entirely. Instead of running a single TWFE regression, they estimate separate treatment effects for each <em>group-time</em> pair (where "group" is defined by adoption timing and "time" is each post-treatment period), using only not-yet-treated or never-treated units as controls. These group-time effects are then aggregated into summary measures.</p>
+
 <p>Callaway and Sant'Anna (2021) proposed a solution that avoids the pitfalls of TWFE by estimating <strong>group-time average treatment effects</strong> as the fundamental building blocks.</p>
 
 <div class="env-block definition">
@@ -1024,6 +1036,8 @@ window.CHAPTERS.push({
             id: 'ch16-sec04',
             title: 'Sun-Abraham & de Chaisemartin-D\'Haultfoeuille',
             content: `<h2>Sun-Abraham & de Chaisemartin-D'Haultfoeuille</h2>
+
+<p class="section-bridge">Callaway-Sant'Anna is one solution to the staggered DiD problem, but it is not the only one. This section presents two alternative approaches that share the same diagnosis but offer different estimation strategies. Sun and Abraham's interaction-weighted estimator works within the regression framework (making it familiar to applied researchers), while de Chaisemartin and D'Haultfoeuille's DID_M estimator takes a more nonparametric approach. Understanding the similarities and differences across these methods helps practitioners choose the right tool for their setting.</p>
 
 <p>Beyond Callaway-Sant'Anna, two other major frameworks address staggered DiD: the <strong>interaction-weighted (IW) estimator</strong> of Sun and Abraham (2021) and the <strong>DID\\(_M\\) estimator</strong> of de Chaisemartin and D'Haultfoeuille (2020).</p>
 
@@ -1396,6 +1410,8 @@ window.CHAPTERS.push({
             title: 'Event Study Design',
             content: `<h2>Event Study Design</h2>
 
+<p class="section-bridge">The modern staggered DiD estimators from Sections 3-4 produce group-time treatment effects. The event study design provides a natural way to visualize these effects by plotting them against <em>event time</em> (time relative to treatment adoption). Event study plots serve a dual purpose: the pre-treatment coefficients test parallel trends, while the post-treatment coefficients trace out the dynamic causal effect. This section develops both the classic and modern approaches to event study estimation.</p>
+
 <p>The <strong>event study</strong> is both a research design and a visualization tool that traces out treatment effects at each relative time (event time) \\(e = t - G_i\\). It is arguably the most common way to present DiD results in applied economics.</p>
 
 <h3>Event Study Specification</h3>
@@ -1485,6 +1501,13 @@ window.CHAPTERS.push({
 <li>Narrowing confidence intervals at event times with more observations</li>
 </ul>
 <p>Warning signs: trending pre-treatment coefficients (suggests violation of parallel trends), a discontinuity at \\(e = -1\\) vs \\(e = -2\\) (anticipation effects), or extremely wide confidence intervals (insufficient power).</p>
+</div>
+</div>
+
+<div class="env-block roadmap">
+<div class="env-title">Looking Ahead</div>
+<div class="env-body">
+<p>DiD compares treated and control groups over time, requiring multiple control units with parallel trends. But what if there are very few treated units (perhaps just one country or state)? Chapter 17 introduces <strong>Synthetic Control Methods</strong>, which construct a data-driven counterfactual by optimally weighting donor units. The synthetic control is like a "tailor-made" control group, and inference proceeds through placebo permutation tests rather than standard asymptotics.</p>
 </div>
 </div>`,
             visualizations: [

@@ -13,6 +13,15 @@ window.CHAPTERS.push({
             id: 'ch19-sec01',
             title: 'CATE & Conditional Average Treatment Effects',
             content: `<h2>1 CATE & Conditional Average Treatment Effects</h2>
+
+<div class="env-block roadmap">
+<div class="env-title">Chapter Opening</div>
+<div class="env-body">
+<p>Throughout Chapters 5-18, we estimated <em>average</em> treatment effects, single numbers summarizing the causal impact for an entire population. But averages can hide crucial variation: a treatment might help some people enormously while harming others. This final chapter asks: <em>for whom</em> does the treatment work, and how do we discover and exploit this heterogeneity? These questions sit at the intersection of causal inference and machine learning, and the methods developed here represent the cutting edge of the field.</p>
+<p><strong>What lies ahead in this chapter:</strong> We define the Conditional Average Treatment Effect (Section 1), develop causal forests for nonparametric CATE estimation (Section 2), introduce meta-learners that wrap any ML algorithm for causal heterogeneity (Section 3), formalize policy learning and optimal treatment rules (Section 4), and close with the Double/Debiased Machine Learning framework for valid inference with high-dimensional nuisance parameters (Section 5).</p>
+</div>
+</div>
+
 <p>Throughout this course we have focused on the <strong>Average Treatment Effect (ATE)</strong>, a single number summarizing the causal impact across the entire population. But a single average can mask dramatic variation: a drug might help women but harm men, a job training program might benefit young workers but not older ones. The <strong>Conditional Average Treatment Effect (CATE)</strong> captures this heterogeneity.</p>
 
 <div class="env-block definition">
@@ -245,6 +254,9 @@ window.CHAPTERS.push({
             id: 'ch19-sec02',
             title: 'Causal Forests',
             content: `<h2>2 Causal Forests</h2>
+
+<p class="section-bridge">Section 1 defined the CATE function \\(\\tau(x)\\), but how do we estimate it from data when we do not know its functional form? Classical approaches require specifying interactions in a regression, which is restrictive and subjective. Causal forests, developed by Wager and Athey (2018), adapt the random forest algorithm to directly target treatment effect heterogeneity. They provide nonparametric, data-driven estimates of the CATE along with valid confidence intervals, all without requiring the researcher to pre-specify which covariates matter.</p>
+
 <p>How can we estimate the CATE function \\(\\tau(x)\\) from data without specifying its functional form in advance? <strong>Causal forests</strong> (Wager & Athey 2018) adapt the random forest algorithm to directly target treatment effect heterogeneity, providing both point estimates and valid confidence intervals.</p>
 
 <div class="env-block definition">
@@ -528,6 +540,9 @@ window.CHAPTERS.push({
             id: 'ch19-sec03',
             title: 'Meta-Learners',
             content: `<h2>3 Meta-Learners</h2>
+
+<p class="section-bridge">Causal forests are a specific algorithm for CATE estimation. Meta-learners take a different approach: instead of designing a custom algorithm, they provide <em>recipes</em> for combining any existing supervised learning method (random forests, neural networks, gradient boosting) into a CATE estimator. Different meta-learner strategies (S-learner, T-learner, X-learner, R-learner) make different tradeoffs between simplicity, efficiency, and robustness. Understanding when to use each is an important practical skill.</p>
+
 <p>Meta-learners are strategies that combine off-the-shelf supervised learning algorithms to estimate the CATE \\(\\tau(x)\\). The term "meta" refers to the fact that these are recipes (meta-algorithms) that wrap any base learner (random forests, boosting, neural networks, etc.) rather than being specific algorithms themselves.</p>
 
 <div class="env-block definition">
@@ -884,6 +899,9 @@ window.CHAPTERS.push({
             id: 'ch19-sec04',
             title: 'Policy Learning & Optimal Treatment Rules',
             content: `<h2>4 Policy Learning & Optimal Treatment Rules</h2>
+
+<p class="section-bridge">Knowing the CATE is scientifically interesting, but the practical payoff comes from <em>acting</em> on it. If we know that the treatment helps some people and hurts others, the optimal policy is to treat exactly those who benefit. This section formalizes this idea as a decision problem: we seek the treatment rule that maximizes expected welfare, subject to the constraint that our rule must be learned from finite data. The connection between CATE estimation and optimal policy learning closes the loop from discovery to action.</p>
+
 <p>Estimating the CATE is an intermediate step. The ultimate goal is often to make <strong>decisions</strong>: given a patient's characteristics, should we treat or not? Policy learning formalizes this as an optimization problem.</p>
 
 <div class="env-block definition">
@@ -1181,6 +1199,9 @@ window.CHAPTERS.push({
             id: 'ch19-sec05',
             title: 'Double/Debiased Machine Learning',
             content: `<h2>5 Double/Debiased Machine Learning</h2>
+
+<p class="section-bridge">Sections 2-4 used machine learning to estimate the full CATE function. But sometimes the goal is simpler: we want to estimate a single parameter (like the ATE) while allowing the nuisance functions (outcome model, propensity score) to be arbitrarily complex. The DML framework provides a principled way to use any ML method for the nuisance functions while still obtaining root-n consistent, asymptotically normal inference for the parameter of interest. This bridges the divide between the flexibility of machine learning and the rigor of semiparametric statistics, connecting back to the doubly robust ideas from Chapter 10.</p>
+
 <p>The methods in the previous sections estimate the full CATE function \\(\\tau(x)\\). But sometimes we care about a <strong>single low-dimensional parameter</strong>, such as the ATE \\(\\theta = E[Y(1) - Y(0)]\\), while allowing high-dimensional or nonparametric nuisance functions. <strong>Double/Debiased Machine Learning (DML)</strong> (Chernozhukov et al. 2018) provides a general framework for \\(\\sqrt{n}\\)-consistent, asymptotically normal inference on such parameters, even when nuisance functions are estimated with machine learning.</p>
 
 <div class="env-block definition">
@@ -1229,6 +1250,13 @@ window.CHAPTERS.push({
 <div class="env-block intuition">
 <div class="env-title">Intuition</div>
 <div class="env-body"><p>Imagine you want to measure how much fertilizer (\\(D\\)) affects crop yield (\\(Y\\)), but soil quality (\\(X\\)) affects both. The naive approach: predict \\(Y\\) from \\(X\\) with ML, then look at what is left over. But if the ML overfits, the residuals are artificially small and the fertilizer effect is biased. DML says: "Residualize <em>both</em> the outcome and the treatment against \\(X\\), using a different fold for prediction, and then regress the outcome residual on the treatment residual." The double residualization (Frisch-Waugh on steroids) plus cross-fitting removes the bias.</p></div>
+</div>
+
+<div class="env-block roadmap">
+<div class="env-title">Course Conclusion</div>
+<div class="env-body">
+<p>Congratulations on completing this course in Causal Inference. You have traveled from the fundamental distinction between correlation and causation (Chapter 0) through the mathematical foundations of potential outcomes and DAGs (Chapters 1-4), the design and analysis of experiments (Chapters 5-7), observational methods based on selection on observables (Chapters 8-10), quasi-experimental designs for settings with unmeasured confounding (Chapters 11-17), and finally to mediation, sensitivity analysis, and machine learning-driven heterogeneity discovery (Chapters 18-19). Each method rests on specific assumptions; choosing the right tool requires understanding both the assumptions and the institutional context. The field continues to evolve rapidly, but the foundations you have built here will serve as a lasting platform for understanding new developments.</p>
+</div>
 </div>`,
             visualizations: [
                 {

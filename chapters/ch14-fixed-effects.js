@@ -16,6 +16,15 @@ window.CHAPTERS.push({
             id: 'ch14-sec01',
             title: 'Panel Data Structure',
             content: `<h2>Panel Data Structure</h2>
+
+<div class="env-block roadmap">
+<div class="env-title">Chapter Opening</div>
+<div class="env-body">
+<p>The previous chapters (11-13) exploited cross-sectional sources of exogenous variation (instruments, cutoffs). This chapter takes a fundamentally different approach: by observing the <em>same</em> units over multiple time periods, we can control for <strong>time-invariant</strong> unobserved confounders without even measuring them. Fixed effects estimation is the workhorse of empirical research with panel data and provides the foundation for the difference-in-differences methods in Chapters 15-16.</p>
+<p><strong>What lies ahead in this chapter:</strong> We introduce the panel data structure (Section 1), develop the fixed effects (within) estimator (Section 2), compare it with first-differencing (Section 3), extend to two-way fixed effects (Section 4), and contrast fixed effects with random effects through the Hausman test (Section 5).</p>
+</div>
+</div>
+
 <p>Panel data (also called longitudinal data) tracks the same set of individuals (firms, countries, people) over multiple time periods. This structure provides powerful tools for causal inference that cross-sectional data alone cannot offer.</p>
 
 <div class="env-block definition">
@@ -194,6 +203,9 @@ $$\\hat{\\beta}_{OLS} = \\beta + \\underbrace{\\frac{\\text{Cov}(X_{it}, \\alpha
             id: 'ch14-sec02',
             title: 'Fixed Effects Estimator',
             content: `<h2>Fixed Effects Estimator</h2>
+
+<p class="section-bridge">With the panel structure in place, we now tackle the core question: how do we eliminate the unobserved individual effect \\(\\alpha_i\\)? The fixed effects estimator achieves this through a simple but powerful operation: subtracting each unit's time average from every observation. After this "within transformation," the unobserved \\(\\alpha_i\\) vanishes, leaving only within-unit variation to identify the treatment effect.</p>
+
 <p>The fixed effects (FE) estimator removes the unobserved individual heterogeneity \\(\\alpha_i\\) through a <strong>within transformation</strong>: demeaning each variable by its individual-specific time average.</p>
 
 <div class="env-block definition">
@@ -413,6 +425,9 @@ $$Y_{it} = \\sum_{i=1}^{N} \\alpha_i D_i + \\beta X_{it} + \\varepsilon_{it}$$
             id: 'ch14-sec03',
             title: 'First-Differencing',
             content: `<h2>First-Differencing</h2>
+
+<p class="section-bridge">The within transformation is not the only way to eliminate fixed effects. An alternative is first-differencing: subtracting each observation from the previous period's observation for the same unit. Both methods remove \\(\\alpha_i\\), but they differ in efficiency depending on the error structure. Understanding when each is preferred is important for applied work, and first-differencing connects directly to the difference-in-differences estimator in Chapter 15.</p>
+
 <p>An alternative to the within transformation is <strong>first-differencing</strong>, which also eliminates the fixed effect \\(\\alpha_i\\).</p>
 
 <div class="env-block definition">
@@ -689,6 +704,9 @@ $$\\hat{\\beta}_{FE} = \\hat{\\beta}_{FD} \\quad \\text{when } T = 2.$$
             id: 'ch14-sec04',
             title: 'Two-Way Fixed Effects',
             content: `<h2>Two-Way Fixed Effects</h2>
+
+<p class="section-bridge">Individual fixed effects control for time-invariant unit characteristics, but what about shocks that affect all units at the same time (recessions, policy changes, seasonal effects)? Two-way fixed effects adds <strong>time fixed effects</strong> \\(\\gamma_t\\) alongside individual effects, absorbing both dimensions of unobserved heterogeneity. TWFE is the dominant specification in applied panel data research, though we will see in Chapter 16 that it requires careful interpretation under staggered treatment adoption.</p>
+
 <p>Two-way fixed effects (TWFE) extends the basic FE model by including both <strong>individual fixed effects</strong> \\(\\alpha_i\\) and <strong>time fixed effects</strong> \\(\\gamma_t\\), controlling for unobserved heterogeneity in both dimensions.</p>
 
 <div class="env-block definition">
@@ -936,6 +954,9 @@ $$\\text{Employment}_{it} = \\alpha_i + \\gamma_t + \\beta \\cdot \\text{MinWage
             id: 'ch14-sec05',
             title: 'Correlated Random Effects & Hausman Test',
             content: `<h2>Correlated Random Effects & Hausman Test</h2>
+
+<p class="section-bridge">Fixed effects "waste" all between-unit variation by demeaning. If the unobserved effect \\(\\alpha_i\\) is truly uncorrelated with the regressors, we could gain efficiency by using random effects instead. The Hausman test provides a formal procedure for deciding between FE and RE: if \\(\\alpha_i\\) is correlated with the regressors (as is common in causal studies), FE is consistent while RE is biased, and the test will reject. This section develops the theory and practical guidance for making this choice.</p>
+
 <p>The random effects (RE) model treats \\(\\alpha_i\\) as a random variable uncorrelated with the regressors. When this assumption holds, RE is more efficient than FE. The Hausman test helps decide between the two.</p>
 
 <div class="env-block definition">
@@ -991,6 +1012,13 @@ $$H = (\\hat{\\beta}_{FE} - \\hat{\\beta}_{RE})^\\top [\\widehat{\\text{Var}}(\\
 <div class="env-title">Example (Hausman Test in Practice)</div>
 <div class="env-body">
 <p>Studying returns to education using worker panel data: \\(Y_{it} = \\log(\\text{wage}_{it})\\), \\(X_{it} = \\text{experience}_{it}\\). We suspect unobserved ability \\(\\alpha_i\\) correlates with experience (higher-ability workers accumulate experience faster). Running the Hausman test: if we reject \\(H_0\\), use FE. If we fail to reject, RE is more efficient and can also estimate the effect of time-invariant variables like education level.</p>
+</div>
+</div>
+
+<div class="env-block roadmap">
+<div class="env-title">Looking Ahead</div>
+<div class="env-body">
+<p>Fixed effects estimation controls for unobserved time-invariant confounders. But it requires that the remaining variation (after demeaning) in treatment is as good as random, a strong assumption. Chapter 15 introduces <strong>Difference-in-Differences (DiD)</strong>, which combines the panel structure with a specific quasi-experimental design: comparing changes over time between groups that adopt a policy and groups that do not. The parallel trends assumption replaces the strict exogeneity requirement of FE.</p>
 </div>
 </div>`,
             visualizations: [

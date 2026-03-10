@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Propensity Score Definition & Properties</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Opening</div>
+                    <div class="env-body">
+                        <p>Chapter 8 introduced matching and weighting as strategies for adjusting for observed confounders. But when the covariate vector \\(X\\) is high-dimensional, exact matching becomes infeasible. The <strong>propensity score</strong>, introduced by Rosenbaum and Rubin (1983), provides an elegant solution: it compresses all covariates into a single number, the probability of treatment. This chapter develops the theory and practice of propensity score methods, one of the most widely used tools in modern observational causal inference.</p>
+                        <p><strong>What lies ahead in this chapter:</strong> We define the propensity score and prove its key balancing property (Section 1), discuss estimation methods (Section 2), cover propensity score matching and stratification (Section 3), develop inverse probability weighting (Section 4), and present essential diagnostic and balance-checking tools (Section 5).</p>
+                    </div>
+                </div>
+
                 <p>In observational studies, treatment assignment depends on a potentially high-dimensional vector of covariates \\(X \\in \\mathbb{R}^p\\). When \\(p\\) is large, exact matching or stratification on \\(X\\) becomes infeasible — a manifestation of the <strong>curse of dimensionality</strong>. The propensity score, introduced by Rosenbaum and Rubin (1983), provides a remarkable solution: it reduces the \\(p\\)-dimensional matching problem to a one-dimensional one.</p>
 
                 <div class="env-block definition">
@@ -336,6 +344,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Propensity Score Estimation</h2>
 
+                <p class="section-bridge">The previous section established the theoretical power of the propensity score: conditioning on this single number is as good as conditioning on all covariates. But the propensity score is unknown and must be estimated from data. The quality of this estimation step is critical, since all downstream methods (matching, stratification, weighting) depend on it. This section covers the main estimation approaches, from logistic regression to machine learning methods.</p>
+
                 <p>The propensity score \\(e(x) = P(W=1 \\mid X=x)\\) is almost never known in practice. It must be <strong>estimated</strong> from the observed data \\(\\{(X_i, W_i)\\}_{i=1}^n\\). The quality of propensity score estimation directly affects the validity of downstream causal estimates.</p>
 
                 <h3>Logistic Regression</h3>
@@ -599,6 +609,8 @@ window.CHAPTERS.push({
             title: 'PS Matching & Stratification',
             content: `
                 <h2>PS Matching & Stratification</h2>
+
+                <p class="section-bridge">With estimated propensity scores in hand, we now use them to create comparable groups. Two classic approaches are propensity score matching (pairing treated and control units with similar scores) and stratification (dividing the sample into propensity score strata and estimating effects within each). Both leverage the dimension-reduction result from Section 1, turning the high-dimensional covariate adjustment problem into a one-dimensional one.</p>
 
                 <p>Given estimated propensity scores \\(\\hat{e}(X_i)\\), two fundamental strategies for estimating treatment effects are <strong>matching</strong> and <strong>stratification</strong>. Both exploit the dimension-reduction property of the propensity score to create comparable groups of treated and control units.</p>
 
@@ -915,6 +927,8 @@ window.CHAPTERS.push({
             title: 'Inverse Probability Weighting (IPW)',
             content: `
                 <h2>Inverse Probability Weighting (IPW)</h2>
+
+                <p class="section-bridge">Matching and stratification discard some data or create discrete strata. Inverse probability weighting takes a different approach: it uses <em>all</em> observations but reweights them so that the weighted sample mimics a randomized experiment. The idea is elegant: units with low probability of receiving their observed treatment carry more "informational weight" because they are rare and informative. This section develops the Horvitz-Thompson and Hajek estimators and their properties.</p>
 
                 <p>Instead of matching or stratifying on the propensity score, we can use it to <strong>reweight</strong> the observed outcomes. Inverse probability weighting creates a pseudo-population in which treatment is independent of covariates, mimicking a randomized experiment.</p>
 
@@ -1275,6 +1289,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Diagnostics & Balance Checking</h2>
 
+                <p class="section-bridge">All propensity score methods rely on a well-specified model. But how do we know if our model is good enough? Unlike standard model checking (which focuses on prediction accuracy), propensity score diagnostics focus on <strong>covariate balance</strong>: after adjustment, do treated and control groups look similar on observed covariates? This section introduces the Love plot and other diagnostic tools that are essential for any propensity score analysis. We also preview Rosenbaum's sensitivity analysis framework, which asks how robust findings are to potential unmeasured confounding, a topic developed fully in Chapter 18.</p>
+
                 <p>Propensity score methods are only as good as the model behind them. <strong>Balance checking</strong> is the essential diagnostic step that verifies whether the propensity score has successfully eliminated confounding. Unlike traditional statistical tests that assess treatment effects, balance diagnostics assess the <em>design</em> of the observational study.</p>
 
                 <h3>Standardized Mean Differences</h3>
@@ -1355,6 +1371,13 @@ window.CHAPTERS.push({
                 </div>
 
                 <div class="viz-placeholder" data-viz="ch09-viz-love-plot"></div>
+
+                <div class="env-block roadmap">
+                    <div class="env-title">Looking Ahead</div>
+                    <div class="env-body">
+                        <p>Propensity score methods model the treatment assignment process, while regression adjustment models the outcome process. Each is vulnerable to misspecification of its respective model. Can we combine both for extra protection? Chapter 10 introduces <strong>doubly robust estimation</strong>, which is consistent if <em>either</em> the propensity score model or the outcome model is correct. This "insurance" property makes doubly robust methods the gold standard in modern causal inference.</p>
+                    </div>
+                </div>
             `,
             visualizations: [
                 {

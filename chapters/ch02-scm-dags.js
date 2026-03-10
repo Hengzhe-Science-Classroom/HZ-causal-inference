@@ -16,6 +16,15 @@ window.CHAPTERS.push({
             id: 'ch02-sec01',
             title: 'Structural Equations & Functional Causal Model',
             content: `<h2>Structural Equations & Functional Causal Model</h2>
+
+<div class="env-block roadmap">
+<div class="env-title">Chapter Opening</div>
+<div class="env-body">
+<p>Chapter 1 gave us the Potential Outcomes framework: a precise language for treatment effects built around the idea of comparing \\(Y_i(1)\\) and \\(Y_i(0)\\). But that framework treats causal structure as implicit. How do we represent the full web of causal relationships among many variables? How do we determine which variables to adjust for and which to leave alone? Pearl's Structural Causal Model (SCM) and its graphical companion, the Directed Acyclic Graph (DAG), provide the answer.</p>
+<p><strong>What lies ahead in this chapter:</strong> We begin with structural equations that encode causal mechanisms (Section 1), then visualize them as DAGs (Section 2). We connect graphs to probability through the Causal Markov Condition (Section 3), formalize interventions with the do-operator (Section 4), and finally show how SCMs and potential outcomes are two sides of the same coin (Section 5).</p>
+</div>
+</div>
+
 <p>A <strong>Structural Causal Model (SCM)</strong> is a mathematical object that encodes the data-generating process of a system, specifying not just associations but the causal mechanisms that produce the observed variables.</p>
 
 <div class="env-block definition">
@@ -339,6 +348,9 @@ where \\(\\text{pa}_i \\subseteq \\mathbf{V} \\setminus \\{V_i\\}\\) are the end
             id: 'ch02-sec02',
             title: 'Directed Acyclic Graphs',
             content: `<h2>Directed Acyclic Graphs</h2>
+
+<p class="section-bridge">Structural equations encode causal mechanisms algebraically, but for complex systems with many variables, the algebra becomes hard to parse. Fortunately, every SCM has a natural graphical representation: a Directed Acyclic Graph. DAGs make causal structure visible at a glance and, as we will see, provide algorithmic tools for answering identification questions. This section introduces the graph-theoretic vocabulary we need.</p>
+
 <p>The graphical component of an SCM is a <strong>Directed Acyclic Graph (DAG)</strong> that encodes the qualitative causal structure &mdash; which variables directly cause which others.</p>
 
 <div class="env-block definition">
@@ -782,6 +794,9 @@ where \\(\\text{pa}_i \\subseteq \\mathbf{V} \\setminus \\{V_i\\}\\) are the end
             id: 'ch02-sec03',
             title: 'Causal vs Statistical DAGs',
             content: `<h2>Causal Markov Condition & Factorization</h2>
+
+<p class="section-bridge">We have seen how to draw DAGs and identify parents, children, ancestors, and descendants. But what do these graphs actually <em>say</em> about probability distributions? The link between graphical structure and statistical properties is provided by the Causal Markov Condition. Understanding this connection is essential because it allows us to read off independence relationships directly from the graph, without any computation.</p>
+
 <p>A DAG is more than a picture &mdash; it encodes a precise set of statistical independence assumptions through the <strong>Causal Markov Condition</strong>.</p>
 
 <div class="env-block definition">
@@ -1051,6 +1066,9 @@ where \\(\\text{pa}_i \\subseteq \\mathbf{V} \\setminus \\{V_i\\}\\) are the end
             id: 'ch02-sec04',
             title: 'Interventions & the do-operator',
             content: `<h2>Interventions & the do-operator</h2>
+
+<p class="section-bridge">So far we have used DAGs to represent the observational world, encoding how variables are generated and which independences hold. But causal inference is about <em>interventions</em>, not just observations. What happens to the system when we reach in and force a variable to take a particular value? The do-operator, introduced briefly in Chapter 0, now receives its full treatment. The graphical operation of "surgery" on a DAG provides a beautiful visual account of how interventions differ from conditioning.</p>
+
 <p>The most powerful aspect of SCMs is their ability to model <strong>interventions</strong> &mdash; what happens when we actively <em>set</em> a variable to a value, rather than merely observing it.</p>
 
 <div class="env-block definition">
@@ -1388,6 +1406,9 @@ where \\(\\text{pa}_i \\subseteq \\mathbf{V} \\setminus \\{V_i\\}\\) are the end
             id: 'ch02-sec05',
             title: 'Connecting SCM to Potential Outcomes',
             content: `<h2>Connecting SCM to Potential Outcomes</h2>
+
+<p class="section-bridge">We now have two complete frameworks for causal reasoning: the Potential Outcomes framework from Chapter 1 and the SCM/DAG framework developed in the current chapter. A natural question arises: are these competing or complementary? This section shows that the SCM framework is strictly more general, in the sense that it <em>generates</em> potential outcomes as derived quantities. Understanding this connection allows us to move fluidly between the two perspectives throughout the remainder of the course.</p>
+
 <p>The Structural Causal Model framework and the Potential Outcomes (Rubin Causal Model) framework are not rival approaches &mdash; they are deeply connected. The SCM provides a foundation that <em>generates</em> potential outcomes.</p>
 
 <div class="env-block definition">
@@ -1447,7 +1468,14 @@ where \\(\\text{pa}_i \\subseteq \\mathbf{V} \\setminus \\{V_i\\}\\) are the end
 </div>
 </div>
 
-<div class="viz-placeholder" data-viz="ch02-viz-scm-po-bridge"></div>`,
+<div class="viz-placeholder" data-viz="ch02-viz-scm-po-bridge"></div>
+
+<div class="env-block roadmap">
+<div class="env-title">Looking Ahead</div>
+<div class="env-body">
+<p>We now possess both the algebraic (SCM) and graphical (DAG) machinery for representing causal systems. The next chapter, <strong>d-Separation and Conditional Independence</strong>, develops the algorithmic tools for reading independence relationships from DAGs. These tools, including the backdoor and frontdoor criteria, will tell us exactly which variables to adjust for when estimating causal effects from observational data.</p>
+</div>
+</div>`,
             visualizations: [
                 {
                     id: 'ch02-viz-scm-po-bridge',

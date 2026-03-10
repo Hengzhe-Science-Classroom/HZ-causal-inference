@@ -16,6 +16,15 @@ window.CHAPTERS.push({
             id: 'ch03-sec01',
             title: 'Paths in DAGs',
             content: `<h2>Paths in DAGs</h2>
+
+<div class="env-block roadmap">
+<div class="env-title">Chapter Opening</div>
+<div class="env-body">
+<p>In Chapter 2, we learned to represent causal systems as DAGs and saw that the Causal Markov Condition links graph structure to probabilistic independence. But we left a critical question open: given a DAG and a conditioning set, how do we systematically determine which variables are independent? The answer is <strong>d-separation</strong>, an algorithmic criterion that makes graph-reading precise and mechanical.</p>
+<p><strong>What lies ahead in this chapter:</strong> We begin with the three fundamental path structures (chains, forks, colliders) that govern information flow (Section 1), then formalize d-separation as a complete criterion (Section 2). We examine the faithfulness assumption that links graph and distribution (Section 3), and develop the two most important identification tools: the backdoor criterion (Section 4) and the frontdoor criterion (Section 5).</p>
+</div>
+</div>
+
 <p>Understanding how information flows through a directed acyclic graph (DAG) is the key to reading off conditional independencies. There are exactly <strong>three fundamental structures</strong> that can appear along any path between two nodes.</p>
 
 <div class="env-block definition">
@@ -289,6 +298,9 @@ window.CHAPTERS.push({
             id: 'ch03-sec02',
             title: 'd-Separation Definition & Algorithm',
             content: `<h2>d-Separation Definition & Algorithm</h2>
+
+<p class="section-bridge">The three fundamental structures (chain, fork, collider) gave us local rules for when a single node blocks or unblocks a path. Now we generalize: in a large DAG with many paths between two variables, how do we determine whether they are conditionally independent given an entire set of conditioning variables? The d-separation criterion combines the local rules into a single, complete algorithm.</p>
+
 <p>We now formalize the rules from Section 1 into a general criterion for reading conditional independencies from any DAG.</p>
 
 <div class="env-block definition">
@@ -715,6 +727,9 @@ window.CHAPTERS.push({
             id: 'ch03-sec03',
             title: 'Faithfulness & Markov Properties',
             content: `<h2>Faithfulness & Markov Properties</h2>
+
+<p class="section-bridge">d-Separation tells us which independencies a DAG <em>implies</em>. But a distribution might have additional independencies not encoded in the graph (due to special parameter configurations). Should we worry about this? This section pins down the exact relationship between graphical structure and probabilistic independence through the Markov and faithfulness conditions, clarifying what DAGs can and cannot tell us.</p>
+
 <p>d-Separation gives us conditional independencies implied by the graph. But what is the precise relationship between a DAG and the probability distribution it represents?</p>
 
 <div class="env-block definition">
@@ -967,6 +982,9 @@ window.CHAPTERS.push({
             id: 'ch03-sec04',
             title: 'Backdoor Criterion',
             content: `<h2>Backdoor Criterion</h2>
+
+<p class="section-bridge">With d-separation in hand, we now tackle the question that motivates this entire chapter: given a DAG, how do we determine which variables to condition on to estimate the causal effect of \\(X\\) on \\(Y\\)? The backdoor criterion provides a simple, graphical answer. It is the workhorse identification strategy that connects directly to the adjustment formula and underlies most observational study designs covered in Chapters 8-10.</p>
+
 <p>The <strong>backdoor criterion</strong> is the most widely used tool for identifying causal effects from observational data. It tells us which variables to adjust for in order to estimate the causal effect of \\(X\\) on \\(Y\\).</p>
 
 <div class="env-block definition">
@@ -1379,6 +1397,9 @@ window.CHAPTERS.push({
             id: 'ch03-sec05',
             title: 'Frontdoor Criterion',
             content: `<h2>Frontdoor Criterion</h2>
+
+<p class="section-bridge">The backdoor criterion requires that we observe and adjust for a sufficient set of confounders. But what if key confounders are unmeasured? In that case, all backdoor paths remain open and the backdoor criterion fails. Remarkably, there is sometimes another way. The frontdoor criterion identifies causal effects by exploiting a mediating variable, even in the presence of unmeasured confounding. This elegant result showcases the power of the graphical approach.</p>
+
 <p>What if we cannot block all backdoor paths because the confounders are <strong>unobserved</strong>? The <strong>frontdoor criterion</strong> offers a remarkable alternative: we can sometimes identify the causal effect by going <em>through</em> a mediator.</p>
 
 <div class="env-block example">
@@ -1433,7 +1454,14 @@ window.CHAPTERS.push({
 </div>
 </div>
 
-<div class="viz-placeholder" data-viz="ch03-viz-frontdoor"></div>`,
+<div class="viz-placeholder" data-viz="ch03-viz-frontdoor"></div>
+
+<div class="env-block roadmap">
+<div class="env-title">Looking Ahead</div>
+<div class="env-body">
+<p>The backdoor and frontdoor criteria are special cases of a much more general theory. In Chapter 4, we introduce Pearl's <strong>do-calculus</strong>, a complete set of three inference rules that can identify any identifiable causal effect. We will also see how the truncated factorization formula and instrumental inequalities extend our toolkit for moving from graphical models to estimable quantities.</p>
+</div>
+</div>`,
             visualizations: [
                 {
                     id: 'ch03-viz-frontdoor',

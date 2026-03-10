@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Sources of Selection Bias</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Opening</div>
+                    <div class="env-body">
+                        <p>In Chapters 5-7, we relied on randomization to eliminate confounding. But many important causal questions cannot be studied experimentally: ethical constraints, logistical barriers, or the retrospective nature of the data prevent random assignment. In observational studies, treated and control groups may differ systematically, creating <strong>selection bias</strong>. This chapter provides a thorough understanding of why this bias arises and introduces the first set of tools for addressing it.</p>
+                        <p><strong>What lies ahead in this chapter:</strong> We catalog the major sources of selection bias (Section 1), learn to distinguish confounders from mediators and colliders in a DAG (Section 2), quantify omitted variable bias with an exact formula (Section 3), introduce matching methods (Section 4), and cover subclassification and weighting approaches (Section 5).</p>
+                    </div>
+                </div>
+
                 <p>Selection bias arises whenever the process by which units enter a study (or a dataset) is systematically related to the potential outcomes. Unlike random measurement error, selection bias produces <strong>systematic</strong> distortions that do not vanish with larger samples. Understanding the taxonomy of selection bias is the first step toward credible causal inference in observational studies.</p>
 
                 <h3>Self-Selection Bias</h3>
@@ -262,6 +270,8 @@ window.CHAPTERS.push({
             title: 'Confounders vs Mediators vs Colliders',
             content: `
                 <h2>Confounders vs Mediators vs Colliders</h2>
+
+                <p class="section-bridge">Section 1 showed that selection bias can arise from many sources. The graphical framework from Chapters 2-3 gives us a precise language for understanding these sources. Whether a variable should be adjusted for depends entirely on its <em>role</em> in the causal graph. Conditioning on a confounder removes bias; conditioning on a collider introduces bias; conditioning on a mediator blocks the causal channel. This section builds the practical skill of classifying variables correctly.</p>
 
                 <p>A central skill in applied causal inference is correctly classifying the variables in a causal graph. The same variable can play different roles depending on the causal structure, and the correct adjustment strategy depends critically on this classification. Adjusting for the wrong type of variable can <em>introduce</em> bias rather than remove it.</p>
 
@@ -524,6 +534,8 @@ window.CHAPTERS.push({
             title: 'Omitted Variable Bias Formula',
             content: `
                 <h2>Omitted Variable Bias Formula</h2>
+
+                <p class="section-bridge">We have seen qualitatively that omitting confounders causes bias. But <em>how much</em> bias? This section provides a precise, quantitative answer. The omitted variable bias formula decomposes the bias into two intuitive components: how strongly the omitted variable predicts the outcome and how strongly it correlates with the treatment. This formula is invaluable both for diagnosing bias in existing studies and for assessing the potential impact of unmeasured confounders.</p>
 
                 <p>When a confounder is omitted from a regression, the resulting coefficient on the treatment variable is biased. The <strong>omitted variable bias (OVB) formula</strong> precisely quantifies this bias as the product of two quantities: the effect of the omitted variable on the outcome and its relationship with the treatment.</p>
 
@@ -789,6 +801,8 @@ window.CHAPTERS.push({
             title: 'Matching Methods',
             content: `
                 <h2>Matching Methods</h2>
+
+                <p class="section-bridge">The OVB formula tells us that bias arises from confounders that are both associated with treatment and predictive of outcomes. The most intuitive solution is to compare treated and control units that are <em>similar</em> on all observed confounders. Matching methods formalize this idea: for each treated unit, find comparable control units and estimate the treatment effect from these matched pairs. This section develops the key matching algorithms and their properties.</p>
 
                 <p>Matching methods attempt to construct a comparison group that is similar to the treated group in terms of observed covariates. The intuition is simple: for each treated unit, find one or more control units with similar covariate values, and compare their outcomes. If the covariates are rich enough to capture all confounders (conditional independence / selection on observables), matching can estimate causal effects.</p>
 
@@ -1087,6 +1101,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Subclassification & Weighting</h2>
 
+                <p class="section-bridge">Matching creates individual pairs, but this can be inefficient or infeasible in high dimensions. Subclassification and weighting offer alternative strategies: instead of finding individual matches, they reweight or stratify the entire sample to achieve covariate balance. These approaches set the stage for the propensity score methods of Chapter 9, which reduce the high-dimensional covariate adjustment problem to a single dimension.</p>
+
                 <p>Subclassification (stratification) and weighting are alternatives to matching that also aim to balance observed covariates between treated and control groups. While matching creates individual pairs, subclassification creates groups, and weighting adjusts the contribution of each observation to the estimator.</p>
 
                 <h3>Subclassification</h3>
@@ -1158,6 +1174,13 @@ window.CHAPTERS.push({
                 </div>
 
                 <div class="viz-placeholder" data-viz="viz-weighting-balance"></div>
+
+                <div class="env-block roadmap">
+                    <div class="env-title">Looking Ahead</div>
+                    <div class="env-body">
+                        <p>Matching and weighting in high-dimensional covariate spaces face the curse of dimensionality. Chapter 9 introduces the <strong>propensity score</strong>, a single scalar summary that reduces the problem of adjusting for many covariates to adjusting for one number. This dimension reduction is one of the most influential ideas in causal inference and forms the backbone of modern observational study design.</p>
+                    </div>
+                </div>
             `,
             visualizations: [
                 {

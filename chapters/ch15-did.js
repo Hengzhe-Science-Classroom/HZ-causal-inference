@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The DiD Idea & 2\u00D72 Design</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Opening</div>
+                    <div class="env-body">
+                        <p>Chapter 14 showed how fixed effects remove time-invariant confounders from panel data. <strong>Difference-in-Differences (DiD)</strong> builds on this idea but adds a specific quasi-experimental structure: some units are exposed to a policy change while others are not, and we compare the <em>change</em> in outcomes across the two groups. DiD is the single most commonly used causal inference method in applied economics and policy evaluation, and understanding its assumptions and limitations is essential for any applied researcher.</p>
+                        <p><strong>What lies ahead in this chapter:</strong> We develop the basic 2x2 DiD design (Section 1), examine the critical parallel trends assumption (Section 2), implement DiD through regression (Section 3), extend to triple differences (Section 4), and cover testing and placebo checks that support the design's credibility (Section 5).</p>
+                    </div>
+                </div>
+
                 <p>Difference-in-Differences (DiD) is one of the most widely used quasi-experimental designs in economics, political science, and public health. The idea is beautifully simple: when we cannot randomly assign treatment, we can still identify causal effects by comparing <em>changes over time</em> across treated and untreated groups, rather than comparing levels at a single point in time.</p>
 
                 <h3>The Setup</h3>
@@ -317,6 +325,8 @@ window.CHAPTERS.push({
             title: 'Parallel Trends Assumption',
             content: `
                 <h2>Parallel Trends Assumption</h2>
+
+                <p class="section-bridge">The 2x2 DiD estimator is simple to compute, but its causal interpretation hinges entirely on the <strong>parallel trends assumption</strong>: that the treated group would have evolved along the same trajectory as the control group in the absence of treatment. This assumption is untestable for the post-treatment period (since we never observe the treated group's counterfactual), but we can assess its plausibility using pre-treatment data. This section examines parallel trends in depth, including when it fails and what to do about it.</p>
 
                 <p>The DiD estimator identifies the ATT only under a critical identifying assumption: the <strong>parallel trends assumption</strong>. Without it, DiD is just a descriptive statistic with no causal interpretation.</p>
 
@@ -652,6 +662,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>DiD with Regression</h2>
 
+                <p class="section-bridge">The conceptual 2x2 framework is clean, but real applications require incorporating covariates, computing proper standard errors (clustered at the treatment unit level), and handling multiple time periods. The regression formulation of DiD provides all of these capabilities and shows that DiD is simply a special case of the two-way fixed effects regression from Chapter 14, with a particular coefficient having the causal interpretation.</p>
+
                 <p>The 2\u00D72 DiD estimator has a natural regression implementation that makes it easy to incorporate covariates, compute standard errors, and extend to multiple periods or groups.</p>
 
                 <h3>The Basic DiD Regression</h3>
@@ -951,6 +963,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Triple Differences (DDD)</h2>
 
+                <p class="section-bridge">When the parallel trends assumption is suspect (e.g., treated and control groups have different pre-trends), a more robust design may be needed. Triple differences adds a <em>third</em> differencing dimension, comparing the DiD estimate across an additional subgroup that should not be affected by treatment. If the violation of parallel trends is common to both subgroups, DDD differences it out. This section develops the method and its identifying assumptions.</p>
+
                 <p>Sometimes the parallel trends assumption for standard DiD is difficult to defend. <strong>Triple Differences (DDD)</strong> adds a third dimension of variation to relax this assumption, providing a more robust estimator when a suitable within-group comparison is available.</p>
 
                 <h3>The DDD Idea</h3>
@@ -1234,6 +1248,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Testing & Placebo Checks</h2>
 
+                <p class="section-bridge">DiD rests on an untestable assumption, but we can build the case for its plausibility through a battery of indirect tests. This section covers the key diagnostic tools: pre-treatment placebo tests (checking whether "fake" treatment effects appear before the actual treatment), event study plots (visualizing dynamics around the treatment date), and specification sensitivity checks. These diagnostics are not optional; they are the standard of evidence in modern DiD research.</p>
+
                 <p>Since the parallel trends assumption is untestable, the credibility of a DiD design rests on indirect evidence. Researchers use a battery of diagnostic tests and placebo checks to assess the plausibility of the identifying assumption.</p>
 
                 <h3>Pre-Treatment Placebo Tests</h3>
@@ -1293,6 +1309,13 @@ window.CHAPTERS.push({
                 </div>
 
                 <div class="viz-placeholder" data-viz="viz-event-study"></div>
+
+                <div class="env-block roadmap">
+                    <div class="env-title">Looking Ahead</div>
+                    <div class="env-body">
+                        <p>The classic 2x2 DiD assumes all treated units adopt treatment at the same time. But in many policy settings, treatment is adopted at <em>different times</em> by different units (staggered adoption). Chapter 16 shows that naive TWFE estimation can produce severely misleading results under staggered treatment, and develops modern alternatives (Callaway-Sant'Anna, Sun-Abraham, and others) that correctly handle differential timing.</p>
+                    </div>
+                </div>
             `,
             visualizations: [
                 {

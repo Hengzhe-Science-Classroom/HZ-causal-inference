@@ -15,6 +15,14 @@ window.CHAPTERS.push({
         content: `
 <h2>Weak Instrument Problem</h2>
 
+<div class="env-block roadmap">
+<div class="env-title">Chapter Opening</div>
+<div class="env-body">
+<p>Chapter 11 presented IV methods under ideal conditions: a strong, valid instrument. But real-world instruments are often <em>weak</em>, barely correlated with the endogenous treatment. When the first stage is weak, 2SLS behaves very differently from the textbook theory: estimates are biased toward OLS, confidence intervals have incorrect coverage, and standard F-tests can be misleading. This chapter confronts these complications head-on.</p>
+<p><strong>What lies ahead in this chapter:</strong> We characterize the weak instrument problem and its consequences (Section 1), develop testing procedures for instrument strength (Section 2), introduce Anderson-Rubin confidence sets that remain valid regardless of instrument strength (Section 3), examine the many instruments problem (Section 4), and study the widely used shift-share (Bartik) instrument design (Section 5).</p>
+</div>
+</div>
+
 <p>
 In instrumental variables estimation, the <strong>strength</strong> of the instrument \\(Z\\) is determined by how well it predicts the endogenous regressor \\(X\\) in the first stage.
 When the first-stage relationship is weak, 2SLS suffers from severe finite-sample bias, and standard inference breaks down.
@@ -315,6 +323,8 @@ An instrument is <strong>weak</strong> if the concentration parameter \\(\\mu^2\
         content: `
 <h2>Testing for Weak Instruments</h2>
 
+<p class="section-bridge">Section 1 demonstrated that weak instruments cause severe bias and distorted inference. The natural next question is: how do we know if our instrument is strong enough? The first-stage F-statistic is the primary diagnostic, but the widely cited "rule of 10" from Staiger and Stock (1997) must be interpreted carefully. This section develops the formal testing framework and presents the modern effective F-statistic of Olea and Pflueger (2013).</p>
+
 <p>
 Since weak instruments can severely distort inference, researchers need reliable diagnostic tests. The primary tool is the first-stage F-statistic, but its interpretation requires care.
 </p>
@@ -599,6 +609,8 @@ The standard F-statistic assumes homoscedasticity. When using robust or clustere
         title: '3. Anderson-Rubin Confidence Sets',
         content: `
 <h2>Anderson-Rubin Confidence Sets</h2>
+
+<p class="section-bridge">If our instrument might be weak, we should not rely on standard 2SLS confidence intervals. But we still need valid inference. The Anderson-Rubin test, originally proposed in 1949, provides a remarkable solution: its validity does not depend on instrument strength at all. The resulting confidence sets always have correct coverage, though they may be wide (or even unbounded) when the instrument is very weak, honestly reflecting our uncertainty.</p>
 
 <p>
 When instruments are weak, standard Wald-based confidence intervals from 2SLS have incorrect coverage. The <strong>Anderson-Rubin (AR) test</strong> provides inference that is <strong>robust to weak instruments</strong>.
@@ -934,6 +946,8 @@ The CLR test is approximately uniformly most powerful (UMP) similar among tests 
         title: '4. Many Instruments',
         content: `
 <h2>Many Instruments</h2>
+
+<p class="section-bridge">The previous sections focused on a single (potentially weak) instrument. But in many applications, researchers use multiple instruments simultaneously. While more instruments should improve efficiency, a paradox emerges: when the number of instruments \\(k\\) grows large, 2SLS becomes biased toward OLS, erasing the very advantage of IV estimation. This section develops the many-instruments asymptotic framework and introduces alternative estimators like LIML and JIVE that are more robust in this setting.</p>
 
 <p>
 When the number of instruments \\(k\\) is large relative to the sample size \\(n\\), standard 2SLS becomes severely biased even if each instrument is individually strong. This is the <strong>many instruments</strong> problem.
@@ -1341,6 +1355,8 @@ When the number of instruments is large: (1) Always report LIML alongside 2SLS. 
         content: `
 <h2>Shift-Share & Bartik Instruments</h2>
 
+<p class="section-bridge">The many-instruments framework finds a natural application in shift-share (Bartik) instruments, one of the most common IV designs in applied economics. These instruments combine cross-sectional variation in industry shares with aggregate shocks to construct a local labor demand instrument. Recent work by Borusyak, Hull, and Jaravel (2022) and Goldsmith-Pinkham, Sorkin, and Swift (2020) has clarified when and why these instruments are valid. This section connects the theoretical concerns about many instruments to a specific, widely used design.</p>
+
 <p>
 <strong>Shift-share (Bartik) instruments</strong> are among the most widely used instruments in applied economics. They combine cross-sectional variation in <strong>shares</strong> with time-series variation in <strong>shifts</strong> to construct instruments.
 </p>
@@ -1441,6 +1457,13 @@ Bartik instruments connect to the many-IV literature because the share-based rep
 </p>
 
 <div class="viz-placeholder" data-viz="ch12-viz-shift-share"></div>
+
+<div class="env-block roadmap">
+<div class="env-title">Looking Ahead</div>
+<div class="env-body">
+<p>IV methods exploit exogenous variation from an instrument. Chapter 13 introduces another quasi-experimental design that exploits a different type of exogenous variation: a <strong>cutoff</strong> in a continuous running variable. In <strong>Regression Discontinuity Design (RDD)</strong>, treatment is determined by whether a score exceeds a threshold, creating a natural experiment at the boundary. RDD provides some of the most credible causal estimates in the social sciences.</p>
+</div>
+</div>
 `,
         visualizations: [
         {

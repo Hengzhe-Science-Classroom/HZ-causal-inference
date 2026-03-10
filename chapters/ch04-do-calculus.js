@@ -12,6 +12,14 @@ window.CHAPTERS.push({
             title: 'The Three Rules of do-Calculus',
             content: `<h2>The Three Rules of do-Calculus</h2>
 
+<div class="env-block roadmap">
+<div class="env-title">Chapter Opening</div>
+<div class="env-body">
+<p>In Chapter 3, we developed d-separation and used it to derive the backdoor and frontdoor criteria, two powerful tools for identifying causal effects from graphs. But these are special cases. Can we handle <em>any</em> DAG, no matter how complex? Pearl's do-calculus provides the answer: a small set of three inference rules that, together with probability axioms, can derive any identifiable causal effect.</p>
+<p><strong>What lies ahead in this chapter:</strong> We state the three rules of do-calculus (Section 1), then show how they combine into systematic identification strategies and algorithms (Section 2). We revisit the adjustment formula and truncated factorization from a do-calculus perspective (Section 3), explore bounds when point identification fails (Section 4), and conclude with the remarkable completeness theorem (Section 5).</p>
+</div>
+</div>
+
 <p>Pearl's do-calculus provides three inference rules that allow us to manipulate expressions involving the \\(do(\\cdot)\\) operator. Together they form a <em>complete</em> system for identifying causal effects from observational data, given a causal DAG.</p>
 
 <div class="env-block definition"><div class="env-title">Setup</div><div class="env-body">
@@ -308,6 +316,8 @@ window.CHAPTERS.push({
             title: 'Identification Strategies',
             content: `<h2>Identification Strategies</h2>
 
+<p class="section-bridge">The three rules of do-calculus are elegant but applying them by hand can be challenging. Which rule should be applied first? Which auxiliary variables should be introduced? This section develops systematic strategies and algorithms that automate the identification process, turning the rules into a practical toolkit for complex DAGs.</p>
+
 <p>A causal effect \\(P(y \\mid do(x))\\) is <strong>identifiable</strong> if it can be uniquely computed from the observational distribution \\(P(v)\\) and the causal DAG structure (without knowing the functional forms or distributions of unobserved variables).</p>
 
 <div class="env-block definition"><div class="env-title">Definition (Identifiability)</div><div class="env-body">
@@ -520,6 +530,8 @@ window.CHAPTERS.push({
             id: 'ch04-sec03',
             title: 'Adjustment Formula & Truncated Factorization',
             content: `<h2>Adjustment Formula & Truncated Factorization</h2>
+
+<p class="section-bridge">The identification algorithms from Section 2 tell us <em>whether</em> a causal effect is identifiable. Now we focus on two canonical <em>formulas</em> for computing the identified quantity. The backdoor adjustment formula, which we met informally in Chapter 3, and the truncated factorization, which provides a direct recipe from the DAG structure, are the two workhorses that translate graphical identification into computable expressions.</p>
 
 <p>Two fundamental tools for computing interventional distributions are the <strong>adjustment formula</strong> (also called the backdoor adjustment) and the <strong>truncated factorization</strong>. They provide complementary perspectives on how intervention changes the joint distribution.</p>
 
@@ -802,6 +814,8 @@ window.CHAPTERS.push({
             title: 'Instrumental Inequalities',
             content: `<h2>Instrumental Inequalities</h2>
 
+<p class="section-bridge">The previous sections focused on situations where causal effects are fully identifiable. But what happens when the DAG contains unmeasured confounders and no sufficient adjustment set exists? The effect may be non-identifiable, meaning no single number can be uniquely determined. Even then, all is not lost: we can often derive <em>bounds</em> on the causal effect, narrowing the range of values consistent with the data. This section introduces instrumental inequalities as the primary tool for partial identification.</p>
+
 <p>When a causal effect \\(P(y \\mid do(x))\\) is not point-identifiable, we may still be able to derive <strong>bounds</strong> on the effect. Instrumental inequalities provide constraints that the observational distribution must satisfy if a proposed causal model is correct.</p>
 
 <div class="env-block definition"><div class="env-title">Definition (Natural Bounds)</div><div class="env-body">
@@ -1056,6 +1070,8 @@ window.CHAPTERS.push({
             title: 'Completeness of do-Calculus',
             content: `<h2>Completeness of do-Calculus</h2>
 
+<p class="section-bridge">Throughout this chapter, we have used the three rules of do-calculus to derive identification results. But a nagging question remains: could there be identifiable effects that our three rules cannot reach? This final section answers that question with a profound result: the do-calculus is <em>complete</em>. If a causal effect can be identified at all, the three rules suffice to derive it. This completeness theorem provides a satisfying closure to the theoretical foundations of causal identification.</p>
+
 <p>A fundamental question in causal inference is: are the three rules of do-calculus <em>sufficient</em> to identify every identifiable causal effect? The answer, proven independently by Huang & Valtorta (2006) and Shpitser & Pearl (2006), is <strong>yes</strong>.</p>
 
 <div class="env-block theorem"><div class="env-title">Theorem (Completeness of do-Calculus)</div><div class="env-body">
@@ -1124,7 +1140,14 @@ window.CHAPTERS.push({
 <li>The IDC algorithm (Shpitser & Pearl, 2006) handles conditional interventional distributions.</li>
 <li>Extensions to transportability and selection bias have been developed using similar completeness frameworks.</li>
 </ul>
-</div></div>`,
+</div></div>
+
+<div class="env-block roadmap">
+<div class="env-title">Looking Ahead</div>
+<div class="env-body">
+<p>With the theoretical foundations complete (potential outcomes, DAGs, d-separation, do-calculus), we now shift from <em>identification</em> to <em>estimation</em>. The next three chapters (5-7) focus on <strong>randomized experiments</strong>, the gold standard for causal inference. Randomization solves the identification problem by design, letting us focus on practical issues of experimental design, statistical power, and testing. These chapters bridge the gap between theory and practice.</p>
+</div>
+</div>`,
             exercises: [
                 {
                     id: 'ch04-ex15',

@@ -16,6 +16,15 @@ window.CHAPTERS.push({
             id: 'ch01-sec01',
             title: 'Rubin Causal Model & Notation',
             content: `<h2>Rubin Causal Model & Notation</h2>
+
+<div class="env-block roadmap">
+<div class="env-title">Chapter Opening</div>
+<div class="env-body">
+<p>In Chapter 0, we saw that correlation does not imply causation and that causal effects are defined by counterfactual comparisons. We noted the fundamental problem: for any unit, we observe only one potential outcome. Now we formalize these ideas into a rigorous mathematical framework.</p>
+<p><strong>What lies ahead in this chapter:</strong> We start with the notation of potential outcomes and treatment effects (Section 1), define the key population-level estimands such as the ATE (Section 2), introduce the critical SUTVA assumption that makes potential outcomes well-defined (Section 3), classify assignment mechanisms that determine identification (Section 4), and survey the main estimation strategies available under unconfoundedness (Section 5).</p>
+</div>
+</div>
+
 <p>The <strong>potential outcomes framework</strong> (also called the <strong>Rubin Causal Model</strong>) provides a precise mathematical language for defining causal effects at the individual level. It was pioneered by Jerzy Neyman (1923) for randomized experiments and extended to observational studies by Donald Rubin (1974).</p>
 
 <div class="env-block definition">
@@ -283,6 +292,9 @@ window.CHAPTERS.push({
             id: 'ch01-sec02',
             title: 'Causal Estimands: ATE, ATT, ATU',
             content: `<h2>Causal Estimands: ATE, ATT, ATU</h2>
+
+<p class="section-bridge">The previous section defined causal effects at the individual level, but we immediately confronted the fundamental problem: individual effects \\(\\tau_i\\) are unobservable. The natural next step is to ask whether we can learn about causal effects at the <em>population</em> level. This section introduces the key estimands that aggregate individual effects into quantities we can hope to estimate.</p>
+
 <p>Since individual treatment effects \\(\\tau_i\\) are unobservable, we focus on <strong>population-level summaries</strong> of treatment effects — called <strong>causal estimands</strong>.</p>
 
 <div class="env-block definition">
@@ -506,6 +518,9 @@ window.CHAPTERS.push({
             id: 'ch01-sec03',
             title: 'SUTVA & Consistency',
             content: `<h2>SUTVA & Consistency</h2>
+
+<p class="section-bridge">We have now defined potential outcomes and the estimands we wish to target. But all of this rests on an implicit assumption: that each unit has a single, well-defined potential outcome under each treatment. What if treating one person affects another person's outcome? What if the "same" treatment can be administered in different ways? This section makes explicit the foundational assumption that ensures potential outcomes are coherent.</p>
+
 <p>The potential outcomes framework rests on a critical assumption called <strong>SUTVA</strong> — the Stable Unit Treatment Value Assumption. Without it, potential outcomes are not even well-defined.</p>
 
 <div class="env-block definition">
@@ -771,6 +786,9 @@ window.CHAPTERS.push({
             id: 'ch01-sec04',
             title: 'Assignment Mechanisms',
             content: `<h2>Assignment Mechanisms</h2>
+
+<p class="section-bridge">With potential outcomes defined and SUTVA in place, we have a clear target (the ATE or ATT) and well-defined quantities. The remaining question is: under what conditions can we actually <em>identify</em> these estimands from observed data? The answer depends entirely on how treatment is assigned. This section classifies different assignment mechanisms and shows how randomization solves the identification problem, while confounded assignment creates bias.</p>
+
 <p>The <strong>assignment mechanism</strong> describes the process by which units are assigned to treatment or control. It is the key to identification of causal effects.</p>
 
 <div class="env-block definition">
@@ -997,6 +1015,9 @@ window.CHAPTERS.push({
             id: 'ch01-sec05',
             title: 'Estimation Under Unconfoundedness',
             content: `<h2>Estimation Under Unconfoundedness</h2>
+
+<p class="section-bridge">The previous section established that unconfoundedness (conditional independence of treatment assignment from potential outcomes) is the key identification condition. Now we turn from identification to estimation: given that we can identify the ATE in principle, what practical estimators can we use? This section previews the main estimation approaches, from regression adjustment to inverse probability weighting and doubly robust methods, each of which will be developed in much greater depth in Chapters 8-10.</p>
+
 <p>Given unconfoundedness and SUTVA, several estimation strategies can identify and estimate causal effects. Each embeds different modeling assumptions and has different robustness properties.</p>
 
 <div class="env-block definition">
@@ -1055,6 +1076,13 @@ window.CHAPTERS.push({
 <li><strong>Truncation</strong>: Cap weights at some maximum value</li>
 <li><strong>Normalized weights</strong> (Hajek estimator): Divide by sum of weights</li>
 </ul>
+</div>
+</div>
+
+<div class="env-block roadmap">
+<div class="env-title">Looking Ahead</div>
+<div class="env-body">
+<p>The potential outcomes framework gives us a precise language for causal effects and a clear decomposition of when they are identifiable. But it is not the only framework. In Chapter 2, we introduce Pearl's <strong>Structural Causal Models (SCMs)</strong> and <strong>Directed Acyclic Graphs (DAGs)</strong>, which provide a complementary, graphical approach to causal reasoning. Where potential outcomes excel at defining estimands and connecting to estimation, DAGs excel at encoding causal assumptions visually and determining identifiability in complex systems.</p>
 </div>
 </div>`,
             visualizations: [

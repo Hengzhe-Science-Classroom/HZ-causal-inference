@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Sharp RDD</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Opening</div>
+                    <div class="env-body">
+                        <p>Chapters 11-12 used instrumental variables to handle unmeasured confounding by exploiting exogenous variation from an instrument. This chapter introduces a different source of exogenous variation: a <strong>cutoff rule</strong>. When treatment is assigned based on whether a continuous score exceeds a threshold, units just above and just below the cutoff are nearly identical, creating a natural experiment at the boundary. The <strong>Regression Discontinuity Design</strong> (RDD) is widely considered one of the most credible quasi-experimental designs in the social sciences.</p>
+                        <p><strong>What lies ahead in this chapter:</strong> We develop the sharp RDD where the cutoff perfectly determines treatment (Section 1), the fuzzy RDD where the cutoff shifts treatment probability (Section 2), bandwidth selection methods (Section 3), validation and manipulation tests (Section 4), and extensions including the regression kink design (Section 5).</p>
+                    </div>
+                </div>
+
                 <p>The <strong>Regression Discontinuity Design</strong> (RDD) is one of the most credible quasi-experimental methods for causal inference. It exploits a known rule that assigns treatment based on whether a continuous <strong>running variable</strong> (also called the forcing variable or score) crosses a known <strong>cutoff</strong>.</p>
 
                 <div class="env-block definition">
@@ -416,6 +424,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Fuzzy RDD</h2>
 
+                <p class="section-bridge">The sharp RDD assumes perfect compliance with the cutoff rule. But in practice, some units above the cutoff may not take up treatment (or some below may obtain it). The <em>fuzzy</em> RDD handles this non-compliance by treating the cutoff as an instrument for treatment, connecting directly to the IV framework from Chapter 11. The identified estimand is a local LATE at the cutoff for compliers.</p>
+
                 <p>In many real-world settings, crossing the cutoff does not deterministically determine treatment. Instead, the <em>probability</em> of treatment jumps at the cutoff, but does not go from 0 to 1. This is the <strong>fuzzy RDD</strong>.</p>
 
                 <div class="env-block definition">
@@ -777,6 +787,8 @@ window.CHAPTERS.push({
             title: 'Bandwidth Selection',
             content: `
                 <h2>Bandwidth Selection</h2>
+
+                <p class="section-bridge">Both sharp and fuzzy RDD rely on comparing outcomes in a narrow window around the cutoff. But how narrow is narrow enough? The bandwidth choice involves a fundamental bias-variance tradeoff: using more data reduces variance but risks including observations far from the cutoff where the local randomization analogy breaks down. This section develops data-driven bandwidth selection procedures, including the influential methods of Imbens and Kalyanaraman (2012) and Calonico, Cattaneo, and Titiunik (2014).</p>
 
                 <p>The choice of <strong>bandwidth</strong> \\(h\\) &mdash; the window around the cutoff within which data are used &mdash; is the most consequential methodological decision in RDD. Too small a bandwidth wastes data and inflates variance; too large a bandwidth introduces bias from observations far from the cutoff.</p>
 
@@ -1144,6 +1156,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Validation &amp; McCrary Test</h2>
 
+                <p class="section-bridge">The key identifying assumption in RDD is that units cannot precisely manipulate the running variable to sort around the cutoff. If they can, the units just above and just below the cutoff are no longer comparable, and the design fails. This section develops diagnostic tests, most notably the McCrary density test, that check for evidence of manipulation, along with other validation strategies such as covariate balance tests and placebo cutoffs.</p>
+
                 <p>The credibility of an RDD rests on the assumption that units cannot precisely manipulate the running variable to sort around the cutoff. Several diagnostic tests and validation exercises can strengthen (or undermine) this assumption.</p>
 
                 <h3>Testing for Manipulation: The McCrary (2008) Test</h3>
@@ -1417,6 +1431,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>RDD Extensions</h2>
 
+                <p class="section-bridge">The standard RDD identifies effects only at a single cutoff point. This final section explores important extensions that broaden the design's applicability: the regression kink design (which exploits changes in the <em>slope</em> of a policy function rather than a jump), multi-score RDD, and methods for extrapolating RDD estimates away from the cutoff.</p>
+
                 <p>The basic RDD framework has been extended in several important directions that expand its applicability to a wider range of empirical settings.</p>
 
                 <h3>Regression Kink Design (RKD)</h3>
@@ -1481,6 +1497,13 @@ window.CHAPTERS.push({
                 <p>Angrist and Rokkanen (2015) proposed an alternative approach: if the running variable is conditionally independent of potential outcomes given covariates (i.e., the running variable only affects outcomes through treatment), then the treatment effect can be identified away from the cutoff using regression adjustment.</p>
 
                 <div class="viz-placeholder" data-viz="viz-rkd"></div>
+
+                <div class="env-block roadmap">
+                    <div class="env-title">Looking Ahead</div>
+                    <div class="env-body">
+                        <p>RDD exploits cross-sectional variation at a cutoff. The next three chapters exploit <em>longitudinal</em> variation: changes over time within units. Chapter 14 introduces <strong>Fixed Effects</strong> estimation, which removes time-invariant unobserved heterogeneity by leveraging within-unit variation. This sets the stage for Difference-in-Differences (Chapter 15-16) and Synthetic Control (Chapter 17), the workhorses of policy evaluation.</p>
+                    </div>
+                </div>
             `,
             visualizations: [
                 {

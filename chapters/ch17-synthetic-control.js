@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Synthetic Control Idea</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Opening</div>
+                    <div class="env-body">
+                        <p>Chapters 15-16 developed DiD for settings with many treated and control units. But some of the most important policy questions involve a <em>single</em> treated unit: one country adopts a trade policy, one state legalizes a substance, one region experiences a shock. With only one treated unit, standard DiD and its variants are insufficient. <strong>Synthetic Control Methods</strong> address this by constructing a data-driven counterfactual from a weighted combination of donor units, and inference proceeds through clever placebo tests rather than standard asymptotics.</p>
+                        <p><strong>What lies ahead in this chapter:</strong> We introduce the synthetic control idea (Section 1), formalize the Abadie-Diamond-Hainmueller optimization framework (Section 2), develop placebo-based inference (Section 3), present the augmented synthetic control that corrects for imperfect fit (Section 4), and connect to the broader matrix completion perspective (Section 5).</p>
+                    </div>
+                </div>
+
                 <p>Many of the most important policy questions in economics and political science involve treatments that affect <em>entire aggregate units</em>: a state passes a law, a country joins a trade bloc, a region experiences an economic shock. In such settings, we cannot simply compare treated and control individuals --- the treatment operates at the macro level, and there may be only <strong>one treated unit</strong>.</p>
 
                 <h3>The Comparative Case Study Problem</h3>
@@ -400,6 +408,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Abadie-Diamond-Hainmueller Framework</h2>
 
+                <p class="section-bridge">The previous section introduced the synthetic control intuitively. Now we formalize it: how exactly are the donor weights chosen? The Abadie-Diamond-Hainmueller framework sets up a nested optimization problem that selects weights to match the treated unit on pre-treatment characteristics and outcomes. This section develops the mathematical formulation and discusses implementation details that matter for applied work.</p>
+
                 <p>The formal synthetic control framework developed by <strong>Abadie, Diamond, and Hainmueller (2010)</strong> defines a precise optimization problem for selecting donor weights. The key insight is a <em>nested</em> optimization: an outer loop selects the importance of each predictor, and an inner loop finds the weights that best match the treated unit on those predictors.</p>
 
                 <h3>Predictor Matching</h3>
@@ -738,6 +748,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Inference via Placebo Tests</h2>
 
+                <p class="section-bridge">The synthetic control produces a point estimate of the treatment effect, but how do we assess whether this effect is statistically significant? With a single treated unit, we cannot compute standard errors in the usual sense. The elegant solution is a permutation-based approach: apply the synthetic control to each <em>donor</em> unit as if it were treated, and compare the resulting placebo effects to the actual estimated effect. If the true effect stands out from the placebo distribution, we have evidence of a genuine treatment effect.</p>
+
                 <p>A major challenge with the synthetic control method is <strong>inference</strong>. Since there is typically only one treated unit, conventional standard errors and confidence intervals are not directly applicable. Abadie, Diamond, and Hainmueller (2010) proposed an elegant solution based on <em>placebo tests</em> --- a form of permutation inference.</p>
 
                 <h3>In-Place Placebo Tests</h3>
@@ -1054,6 +1066,8 @@ window.CHAPTERS.push({
             title: 'Augmented Synthetic Control',
             content: `
                 <h2>Augmented Synthetic Control</h2>
+
+                <p class="section-bridge">The standard synthetic control requires the treated unit to lie inside the convex hull of the donor pool. When it does not (perhaps because the treated unit is an outlier on some dimension), pre-treatment fit may be poor, and the estimated effect may be biased. The augmented synthetic control addresses this by combining the synthetic control with a regression-based bias correction, echoing the doubly robust idea from Chapter 10.</p>
 
                 <p>A well-known limitation of the standard synthetic control is that it requires a good pre-treatment fit. When the treated unit lies outside the convex hull of the donor pool or the number of pre-treatment periods is limited, the synthetic control may produce a biased estimate. The <strong>augmented synthetic control method (ASCM)</strong> addresses this by combining the synthetic control with an outcome model to correct for residual imbalance.</p>
 
@@ -1382,6 +1396,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Matrix Completion & Generalized SCM</h2>
 
+                <p class="section-bridge">Stepping back, we can view the synthetic control problem through a powerful unifying lens: <strong>matrix completion</strong>. The observed data form a matrix with some entries missing (the counterfactual outcomes for the treated unit after treatment). Filling in these missing entries is exactly the matrix completion problem studied in machine learning. This perspective connects the synthetic control to factor models, nuclear norm minimization, and other modern methods, and naturally handles extensions such as multiple treated units and flexible factor structures.</p>
+
                 <p>The synthetic control method can be viewed through the lens of <strong>matrix completion</strong>. This connection leads to powerful generalizations, including methods that handle multiple treated units, flexible factor structures, and missing data.</p>
 
                 <h3>The Matrix Completion View</h3>
@@ -1484,6 +1500,13 @@ window.CHAPTERS.push({
                 </table>
 
                 <div class="viz-placeholder" data-viz="viz-matrix-completion"></div>
+
+                <div class="env-block roadmap">
+                    <div class="env-title">Looking Ahead</div>
+                    <div class="env-body">
+                        <p>With the quasi-experimental methods complete (Chapters 11-17), we now turn to two advanced topics. Chapter 18 addresses <strong>Mediation Analysis and Sensitivity</strong>: not just <em>whether</em> a treatment works, but <em>how</em> it works (through which pathways), and <em>how robust</em> our conclusions are to potential unmeasured confounding. These tools complement every method we have studied so far.</p>
+                    </div>
+                </div>
             `,
             visualizations: [
                 {
